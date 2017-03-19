@@ -79,7 +79,8 @@ INSERT INTO service (se_name) VALUES ('Телефоны');
 CREATE TABLE status							-- статус заявки
 (
 	st_id SERIAL NOT NULL, 				-- ID статуса
-	st_name VARCHAR(40) NOT NULL 	-- наименование статуса
+	st_name VARCHAR(40) NOT NULL, 	-- наименование статуса
+	primary key (st_id) 
 );
 INSERT INTO status (st_name) VALUES ('открыта');
 INSERT INTO status (st_name) VALUES ('закрыта');
@@ -94,11 +95,32 @@ CREATE TABLE manager										-- менеджеры
 	mg_name_f VARCHAR(40) 	not null,     -- фамилия менеджера
 	mg_name_i VARCHAR(40) 	not null,     -- имя менеджера
 	mg_name_o VARCHAR(40) 	not null,     -- отчество менеджера
-	mg_tel    VARCHAR(40)  null           -- телефон менеджера	
+	mg_tel    VARCHAR(40)  null,           -- телефон менеджера	
+
+	primary key (mg_id) 
 );
 
 INSERT INTO manager VALUES (1, 'Менеджер 1','имя','отчество','21-2-5');
 INSERT INTO manager VALUES (2, 'Менеджер 2','имя 2','отчество 2','21-2-5');
+
+CREATE TABLE mservice																	-- мастера по сервисам
+(
+	ms_ser_id INT2 NOT NULL,														-- ID сервиса
+	ms_mas_id INT2 NOT NULL,														-- ID мастера
+
+	primary key (ms_ser_id,ms_mas_id),
+	foreign key (ms_ser_id) references service (se_id)
+	 on delete restrict on update restrict,
+	foreign key (ms_mas_id) references master (ma_id)
+	 on delete restrict on update restrict
+);
+
+INSERT INTO mservice VALUES (1,1);
+INSERT INTO mservice VALUES (2,1);
+INSERT INTO mservice VALUES (3,1);
+INSERT INTO mservice VALUES (4,1);
+INSERT INTO mservice VALUES (1,2);
+INSERT INTO mservice VALUES (2,2);
 
 -- create table people (
 -- p_id                 SERIAL               not null,
