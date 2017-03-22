@@ -122,25 +122,47 @@ INSERT INTO mservice VALUES (4,1);
 INSERT INTO mservice VALUES (1,2);
 INSERT INTO mservice VALUES (2,2);
 
--- create table people (
--- p_id                 SERIAL               not null,
--- p_dep_id             INT2                 null,
--- p_name               VARCHAR(40)          null,
--- p_begin_work         TIME without time zone null,
--- p_end_work           TIME without time zone null,
--- p_picture            BYTEA	          null,
--- p_resume             TEXT                 null,
--- p_redundant          INT2                 null,
--- primary key (p_id),
--- foreign key (p_dep_id) references department (dep_id)
---    on delete restrict on update restrict
--- );
+CREATE TABLE application											-- заявки 
+(
+	ap_id SERIAL NOT NULL,											-- ID заявки
+  ap_typ_id INT2 NOT NULL,										-- ID тип заявки
+	ap_inform VARCHAR(200),											-- информация
+	ap_start TIME without time zone null,				-- время поступления
+	ap_end TIME without time zone null,				  -- время закрытия
+	ap_sta_id INT2 NOT NULL,										-- ID текущий статус
+	ap_ser_id INT2 NOT NULL,										-- ID сервиса
+	ap_mas_id INT2 NOT NULL,										-- ID текущий мастер
+	ap_man_id INT2 NOT NULL,										-- ID текущий менеджер
+	ap_com_id INT2 null,     										-- ID компании заказчика
+	ap_rez VARCHAR(40) NULL,										-- решение
+	ap_app_id INT2 NULL,												-- ID вышестояшее заявка
+	ap_srok TIME without time zone null,				-- время контрольного срока
+	ap_plan TIME without time zone null,				-- время планируемого срока
+	ap_place VARCHAR(40),												-- место по заявке
 
--- sublime-github
--- github-tuls
--- git
--- gist
---  gitgutter,Modific    - точки сбоку
---  glue - c+a+g          cmd
---  TortoiseGit Context Integration.sublime-package
---  SideBarGit.sublime-package - нижняя строчка
+primary key (ap_id),
+	foreign key (ap_typ_id) references typeservice (ty_id)
+	 on delete restrict on update restrict,
+	foreign key (ap_sta_id) references status (st_id)
+	 on delete restrict on update restrict,
+	foreign key (ap_ser_id) references service (se_id)
+	 on delete restrict on update restrict,
+	foreign key (ap_mas_id) references master (ma_id)
+	 on delete restrict on update restrict,
+	foreign key (ap_man_id) references manager (mg_id)
+	 on delete restrict on update restrict,
+	foreign key (ap_com_id) references company (co_id)
+	 on delete restrict on update restrict,
+	foreign key (ap_app_id) references application (ap_id)
+	 on delete restrict on update restrict
+);
+
+INSERT INTO application VALUES (1,5,'неработает что-то 1','2002-12-20 18:00:00',
+		'2002-12-20 18:00:00',6,4,4,2,2,'решение',NULL,'2002-12-22 18:00:00',
+		'2002-12-23 18:00:00','место 1');
+INSERT INTO application VALUES (2,4,'неработает что-то 2','2002-12-20 18:00:00',
+		'2002-12-20 18:00:00',6,4,4,2,2,'решение',NULL,'2002-12-22 18:00:00',
+		'2002-12-23 18:00:00','место 2');
+INSERT INTO application VALUES (3,4,'неработает что-то 3','2002-12-20 18:00:00',
+		'2002-12-20 18:00:00',6,4,4,2,2,'решение',NULL,'2002-12-22 18:00:00',
+		'2002-12-23 18:00:00','место 3');
