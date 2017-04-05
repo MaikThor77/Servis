@@ -3,10 +3,12 @@ object Form1: TForm1
   Height = 353
   Top = 250
   Width = 610
-  Caption = 'Form1'
+  Caption = 'Servis'
   ClientHeight = 353
   ClientWidth = 610
+  OnCreate = FormCreate
   LCLVersion = '6.0'
+  WindowState = wsMaximized
   object Panel1: TPanel
     Left = 0
     Height = 353
@@ -79,6 +81,7 @@ object Form1: TForm1
       LargeImages = LargeImageList
       Tabs = (
         'SpkTab1'
+        'SpkTab2'
       )
       object SpkTab1: TSpkTab
         CustomAppearance.Tab.TabHeaderFont.Color = 9126421
@@ -128,20 +131,107 @@ object Form1: TForm1
         OverrideAppearance = False
         Visible = True
         Panes = (
+          'SpkPane2'
+          'SpkPane3'
+        )
+        object SpkPane2: TSpkPane
+          Caption = 'Файловые команды'
+          Visible = True
+          Items = (          )
+        end
+        object SpkPane3: TSpkPane
+          Caption = 'Справочники'
+          Visible = True
+          Items = (
+            'SpkSmallButton1'
+            'SpkSmallButton2'
+          )
+          object SpkSmallButton1: TSpkSmallButton
+            Visible = True
+            Enabled = True
+            Caption = 'Компании'
+            OnClick = SpkSmallButton1Click
+            GroupBehaviour = gbSingleItem
+            HideFrameWhenIdle = False
+            ShowCaption = True
+            TableBehaviour = tbContinuesRow
+            ButtonKind = bkButton
+          end
+          object SpkSmallButton2: TSpkSmallButton
+            Visible = True
+            Enabled = True
+            Caption = 'Сервисы'
+            GroupBehaviour = gbSingleItem
+            HideFrameWhenIdle = False
+            ShowCaption = True
+            TableBehaviour = tbContinuesRow
+            ButtonKind = bkButton
+          end
+        end
+      end
+      object SpkTab2: TSpkTab
+        CustomAppearance.Tab.TabHeaderFont.Color = 9126421
+        CustomAppearance.Tab.TabHeaderFont.Height = -11
+        CustomAppearance.Tab.TabHeaderFont.Name = 'Tahoma'
+        CustomAppearance.Tab.BorderColor = 14922381
+        CustomAppearance.Tab.GradientFromColor = 16115934
+        CustomAppearance.Tab.GradientToColor = 15587527
+        CustomAppearance.Tab.GradientType = bkConcave
+        CustomAppearance.Tab.InactiveTabHeaderFontColor = 9126421
+        CustomAppearance.Pane.BorderDarkColor = 14335646
+        CustomAppearance.Pane.BorderLightColor = 16315117
+        CustomAppearance.Pane.CaptionBgColor = 15849922
+        CustomAppearance.Pane.CaptionFont.Color = 9126421
+        CustomAppearance.Pane.CaptionFont.Height = -11
+        CustomAppearance.Pane.CaptionFont.Name = 'Tahoma'
+        CustomAppearance.Pane.GradientFromColor = 16115934
+        CustomAppearance.Pane.GradientToColor = 15587527
+        CustomAppearance.Pane.GradientType = bkConcave
+        CustomAppearance.Element.CaptionFont.Color = clMenuText
+        CustomAppearance.Element.CaptionFont.Height = -11
+        CustomAppearance.Element.CaptionFont.Name = 'Tahoma'
+        CustomAppearance.Element.IdleFrameColor = 14727067
+        CustomAppearance.Element.IdleGradientFromColor = 15653832
+        CustomAppearance.Element.IdleGradientToColor = 15323324
+        CustomAppearance.Element.IdleGradientType = bkConcave
+        CustomAppearance.Element.IdleInnerLightColor = 15852501
+        CustomAppearance.Element.IdleInnerDarkColor = 15520702
+        CustomAppearance.Element.IdleCaptionColor = 11631958
+        CustomAppearance.Element.HotTrackFrameColor = 10211293
+        CustomAppearance.Element.HotTrackGradientFromColor = 14351615
+        CustomAppearance.Element.HotTrackGradientToColor = 5101567
+        CustomAppearance.Element.HotTrackGradientType = bkConcave
+        CustomAppearance.Element.HotTrackInnerLightColor = 12972543
+        CustomAppearance.Element.HotTrackInnerDarkColor = 8045272
+        CustomAppearance.Element.HotTrackCaptionColor = 8864367
+        CustomAppearance.Element.HotTrackBrightnessChange = 40
+        CustomAppearance.Element.ActiveFrameColor = 5535371
+        CustomAppearance.Element.ActiveGradientFromColor = 7126014
+        CustomAppearance.Element.ActiveGradientToColor = 4035324
+        CustomAppearance.Element.ActiveGradientType = bkConcave
+        CustomAppearance.Element.ActiveInnerLightColor = 961020
+        CustomAppearance.Element.ActiveInnerDarkColor = 961020
+        CustomAppearance.Element.ActiveCaptionColor = 8405614
+        CustomAppearance.Element.Style = esRounded
+        Caption = '?'
+        OverrideAppearance = False
+        Visible = True
+        Panes = (
           'SpkPane1'
         )
         object SpkPane1: TSpkPane
-          Caption = 'Pane'
+          Caption = '?'
           Visible = True
           Items = (
-            'SpkLargeButton4'
+            'SpkLargeButton1'
           )
-          object SpkLargeButton4: TSpkLargeButton
+          object SpkLargeButton1: TSpkLargeButton
             Visible = True
             Enabled = True
-            Action = AcOpen
-            Caption = 'Open...'
-            LargeImageIndex = 1
+            Action = AcQuit
+            Caption = 'Выход'
+            OnClick = AcQuitExecute
+            LargeImageIndex = 0
             ButtonKind = bkButton
           end
         end
@@ -151,8 +241,8 @@ object Form1: TForm1
   object LargeImageList: TImageList
     Height = 32
     Width = 32
-    Left = 344
-    Top = 199
+    Left = 24
+    Top = 264
     Bitmap = {
       4C69060000002000000020000000FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
       FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
@@ -926,8 +1016,8 @@ object Form1: TForm1
     }
   end
   object ImageList: TImageList
-    Left = 258
-    Top = 199
+    Left = 29
+    Top = 112
     Bitmap = {
       4C69060000001000000010000000FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
       FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
@@ -1126,8 +1216,8 @@ object Form1: TForm1
   end
   object ActionList: TActionList
     Images = ImageList
-    Left = 164
-    Top = 196
+    Left = 24
+    Top = 208
     object AcOpen: TAction
       Category = 'File'
       Caption = 'Open...'
@@ -1178,9 +1268,10 @@ object Form1: TForm1
     end
     object AcQuit: TAction
       Category = 'File'
-      Caption = 'Quit'
+      Caption = 'Выход'
       Hint = 'Close application'
       ImageIndex = 0
+      OnExecute = AcQuitExecute
     end
     object AcAutoSave: TAction
       Category = 'Options'
@@ -1195,5 +1286,9 @@ object Form1: TForm1
       Hint = 'Save settings now'
       ImageIndex = 2
     end
+  end
+  object RxVersionInfo1: TRxVersionInfo
+    Left = 29
+    Top = 152
   end
 end

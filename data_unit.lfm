@@ -1,0 +1,76 @@
+object DataModule1: TDataModule1
+  OldCreateOrder = False
+  Height = 306
+  HorizontalOffset = 272
+  VerticalOffset = 250
+  Width = 860
+  object DScompany: TDataSource
+    DataSet = Zcompany
+    Left = 136
+    Top = 120
+  end
+  object ZConnection1: TZConnection
+    ControlsCodePage = cCP_UTF8
+    AutoEncodeStrings = False
+    Properties.Strings = (
+      'AutoEncodeStrings='
+    )
+    Connected = True
+    HostName = '127.0.0.1'
+    Port = 0
+    Database = 'SER'
+    User = 'postgres'
+    Password = 'postgres'
+    Protocol = 'postgresql-9'
+    Left = 40
+    Top = 56
+  end
+  object Zcompany: TZQuery
+    Connection = ZConnection1
+    Active = True
+    SQL.Strings = (
+      'select * from company'
+    )
+    Params = <>
+    Sequence = ZSequenceCompany
+    SequenceField = 'co_id'
+    Left = 136
+    Top = 56
+    object Zcompanyco_id: TLongintField
+      FieldKind = fkData
+      FieldName = 'co_id'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object Zcompanyco_name: TStringField
+      FieldKind = fkData
+      FieldName = 'co_name'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 160
+    end
+    object Zcompanyco_adress: TMemoField
+      FieldKind = fkData
+      FieldName = 'co_adress'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      BlobType = ftMemo
+      Transliterate = False
+    end
+  end
+  object ZSequenceCompany: TZSequence
+    Connection = ZConnection1
+    SequenceName = 'public.company_co_id_seq'
+    Left = 226
+    Top = 43
+  end
+end

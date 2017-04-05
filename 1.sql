@@ -9,6 +9,7 @@ CREATE TABLE company    				-- компании заказчики
 
 INSERT INTO company VALUES (1,'Volvo','Ленина 1');
 INSERT INTO company VALUES (2,'Zenit','Ленина 2');
+ALTER SEQUENCE company_co_id_seq RESTART WITH 3;
 
 CREATE TABLE people               -- заказчики  
 (
@@ -29,6 +30,7 @@ CREATE TABLE people               -- заказчики
 INSERT INTO people VALUES (1,'Петров','Петок','Петрович',1,'2-12-25','Пушкина 5','1@mail.com');
 INSERT INTO people VALUES (2,'Сидоров','Сидр','Сидорович',1,'2-10-57','Пушкина 15','5@mail.com');
 INSERT INTO people VALUES (3,'Иванов','Иван','Иванович',2,'5-16-54','Пушкина 14','14@mail.com');
+ALTER SEQUENCE people_pe_id_seq RESTART WITH 4;
 
 
 CREATE TABLE typeservice            -- типы сервисов
@@ -62,6 +64,7 @@ INSERT INTO master VALUES (1, 'Петров','Петок','Петрович','2-
 INSERT INTO master VALUES (2, 'Петров1','Петок1','Петрович1','21-12-25','02@mail.com');
 INSERT INTO master VALUES (3, 'Петров2','Петок2','Петрович2','22-12-25','03@mail.com');
 INSERT INTO master VALUES (4, 'Петров3','Петок3','Петрович3','23-12-25','04@mail.com');
+ALTER SEQUENCE master_ma_id_seq RESTART WITH 5;
 
 CREATE TABLE service            -- обслужываемые сервисы
 (
@@ -102,6 +105,7 @@ CREATE TABLE manager										-- менеджеры
 
 INSERT INTO manager VALUES (1, 'Менеджер 1','имя','отчество','21-2-5');
 INSERT INTO manager VALUES (2, 'Менеджер 2','имя 2','отчество 2','21-2-5');
+ALTER SEQUENCE manager_mg_id_seq RESTART WITH 3;
 
 CREATE TABLE mservice																	-- мастера по сервисам
 (
@@ -166,3 +170,4 @@ INSERT INTO application VALUES (2,4,'неработает что-то 2','2002-1
 INSERT INTO application VALUES (3,4,'неработает что-то 3','2002-12-20 18:00:00',
 		'2002-12-20 18:00:00',6,4,4,2,2,'решение',NULL,'2002-12-22 18:00:00',
 		'2002-12-23 18:00:00','место 3');
+ALTER SEQUENCE application_ap_id_seq RESTART WITH 4;
