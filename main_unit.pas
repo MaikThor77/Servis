@@ -5,9 +5,9 @@ unit main_unit;
 interface
 
 uses
-  Classes, SysUtils, FileUtil, RxVersInfo, SpkToolbar, spkt_Tab,
-  spkt_Pane, spkt_Buttons, spkt_Checkboxes, Forms, Controls, Graphics, Dialogs,
-  ActnList, StdActns, Menus, ExtCtrls, StdCtrls, ComCtrls,company_unit;
+  Classes, SysUtils, FileUtil, RxVersInfo, SpkToolbar, spkt_Tab, spkt_Pane,
+  spkt_Buttons, spkt_Checkboxes, Forms, Controls, Graphics, Dialogs, ActnList,
+  StdActns, Menus, ExtCtrls, StdCtrls, ComCtrls, company_unit, servis_unit;
 
 type
 
@@ -32,20 +32,16 @@ type
     RxVersionInfo1: TRxVersionInfo;
     SpkCheckbox1: TSpkCheckbox;
     SpkLargeButton1: TSpkLargeButton;
-    SpkLargeButton2: TSpkLargeButton;
-    SpkLargeButton3: TSpkLargeButton;
     SpkPane1: TSpkPane;
-    SpkPane2: TSpkPane;
     SpkPane3: TSpkPane;
     SpkPane4: TSpkPane;
     SpkPane5: TSpkPane;
     SpkPane6: TSpkPane;
     SpkPane7: TSpkPane;
-    SpkRadioButton1: TSpkRadioButton;
     SpkRadioButton2: TSpkRadioButton;
     SpkSmallButton1: TSpkSmallButton;
     SpkSmallButton2: TSpkSmallButton;
-    SpkSmallButton5: TSpkSmallButton;
+    SpkSmallButton3: TSpkSmallButton;
     SpkSmallButton7: TSpkSmallButton;
     SpkTab1: TSpkTab;
     SpkTab2: TSpkTab;
@@ -56,6 +52,7 @@ type
     procedure AcQuitExecute(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure SpkSmallButton1Click(Sender: TObject);
+    procedure SpkSmallButton2Click(Sender: TObject);
   private
 
   public
@@ -79,6 +76,11 @@ end;
 procedure TForm1.SpkSmallButton1Click(Sender: TObject);
 begin
   Company.Show;
+end;
+
+procedure TForm1.SpkSmallButton2Click(Sender: TObject);
+begin
+     Servis.Show;
 end;
 
 procedure TForm1.AcQuitExecute(Sender: TObject);

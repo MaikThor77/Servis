@@ -14,7 +14,7 @@
       <UseVersionInfo Value="True"/>
       <AutoIncrementBuild Value="True"/>
       <MajorVersionNr Value="1"/>
-      <BuildNr Value="7"/>
+      <BuildNr Value="16"/>
       <Attributes pvaPreRelease="True"/>
       <StringTable ProductVersion="0.0.0.0"/>
     </VersionInfo>
@@ -29,24 +29,30 @@
         <FormatVersion Value="1"/>
       </local>
     </RunParams>
-    <RequiredPackages Count="5">
+    <RequiredPackages Count="7">
       <Item1>
-        <PackageName Value="pl_zeosdbo"/>
+        <PackageName Value="bs_Controls"/>
       </Item1>
       <Item2>
-        <PackageName Value="FCL"/>
+        <PackageName Value="pl_richmemo"/>
       </Item2>
       <Item3>
-        <PackageName Value="pl_rx"/>
+        <PackageName Value="pl_zeosdbo"/>
       </Item3>
       <Item4>
-        <PackageName Value="pl_spktoolbar"/>
+        <PackageName Value="FCL"/>
       </Item4>
       <Item5>
-        <PackageName Value="LCL"/>
+        <PackageName Value="pl_rx"/>
       </Item5>
+      <Item6>
+        <PackageName Value="pl_spktoolbar"/>
+      </Item6>
+      <Item7>
+        <PackageName Value="LCL"/>
+      </Item7>
     </RequiredPackages>
-    <Units Count="4">
+    <Units Count="6">
       <Unit0>
         <Filename Value="service.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -72,6 +78,18 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
       </Unit3>
+      <Unit4>
+        <Filename Value="servis_unit.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="Servis"/>
+        <ResourceBaseClass Value="Form"/>
+      </Unit4>
+      <Unit5>
+        <Filename Value="status_unit.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="Status"/>
+        <ResourceBaseClass Value="Form"/>
+      </Unit5>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

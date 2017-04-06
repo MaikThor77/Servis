@@ -12,8 +12,10 @@ object DataModule1: TDataModule1
   object ZConnection1: TZConnection
     ControlsCodePage = cCP_UTF8
     AutoEncodeStrings = False
+    ClientCodepage = 'UTF8'
     Properties.Strings = (
       'AutoEncodeStrings='
+      'codepage=UTF8'
     )
     Connected = True
     HostName = '127.0.0.1'
@@ -27,6 +29,7 @@ object DataModule1: TDataModule1
   end
   object Zcompany: TZQuery
     Connection = ZConnection1
+    OnDeleteError = ZcompanyDeleteError
     Active = True
     SQL.Strings = (
       'select * from company'
@@ -70,7 +73,95 @@ object DataModule1: TDataModule1
   object ZSequenceCompany: TZSequence
     Connection = ZConnection1
     SequenceName = 'public.company_co_id_seq'
-    Left = 226
-    Top = 43
+    Left = 136
+    Top = 16
+  end
+  object DSservis: TDataSource
+    DataSet = Zservis
+    OnDataChange = DSservisDataChange
+    Left = 232
+    Top = 120
+  end
+  object Zservis: TZQuery
+    Connection = ZConnection1
+    OnDeleteError = ZservisDeleteError
+    Active = True
+    SQL.Strings = (
+      'select * from service'
+    )
+    Params = <>
+    Sequence = ZSequenceservis
+    SequenceField = 'se_id'
+    Left = 232
+    Top = 56
+    object Zservisse_id: TLongintField
+      FieldKind = fkData
+      FieldName = 'se_id'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object Zservisse_name: TStringField
+      FieldKind = fkData
+      FieldName = 'se_name'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 160
+    end
+  end
+  object ZSequenceservis: TZSequence
+    Connection = ZConnection1
+    SequenceName = 'public.service_se_id_seq'
+    Left = 232
+    Top = 16
+  end
+  object ZSequencestatus: TZSequence
+    Connection = ZConnection1
+    SequenceName = 'public.status_st_id_seq'
+    Left = 336
+    Top = 16
+  end
+  object Zstatus: TZQuery
+    Connection = ZConnection1
+    OnDeleteError = ZservisDeleteError
+    Active = True
+    SQL.Strings = (
+      'select * from status'
+    )
+    Params = <>
+    Sequence = ZSequencestatus
+    SequenceField = 'st_id'
+    Left = 336
+    Top = 56
+    object Zstatusst_id: TLongintField
+      FieldKind = fkData
+      FieldName = 'st_id'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object Zstatusst_name: TStringField
+      FieldKind = fkData
+      FieldName = 'st_name'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 160
+    end
+  end
+  object DSstatus: TDataSource
+    DataSet = Zstatus
+    OnDataChange = DSservisDataChange
+    Left = 336
+    Top = 120
   end
 end

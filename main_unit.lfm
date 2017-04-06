@@ -2,10 +2,10 @@ object Form1: TForm1
   Left = 210
   Height = 353
   Top = 250
-  Width = 610
+  Width = 541
   Caption = 'Servis'
   ClientHeight = 353
-  ClientWidth = 610
+  ClientWidth = 541
   OnCreate = FormCreate
   LCLVersion = '6.0'
   WindowState = wsMaximized
@@ -13,11 +13,11 @@ object Form1: TForm1
     Left = 0
     Height = 353
     Top = 0
-    Width = 610
+    Width = 541
     Align = alClient
     BevelOuter = bvNone
     ClientHeight = 353
-    ClientWidth = 610
+    ClientWidth = 541
     TabOrder = 0
     object Label1: TLabel
       Left = 16
@@ -30,9 +30,9 @@ object Form1: TForm1
     object SpkToolbar1: TSpkToolbar
       Left = 0
       Top = 0
-      Width = 610
+      Width = 541
       Color = clGradientActiveCaption
-      Style = spkOffice2007Silver
+      Style = spkOffice2007SilverTurquoise
       Appearance.Tab.TabHeaderFont.Color = 8016716
       Appearance.Tab.TabHeaderFont.Height = -11
       Appearance.Tab.TabHeaderFont.Name = 'Tahoma'
@@ -60,20 +60,20 @@ object Form1: TForm1
       Appearance.Element.IdleInnerLightColor = 16184048
       Appearance.Element.IdleInnerDarkColor = 13091002
       Appearance.Element.IdleCaptionColor = 6317407
-      Appearance.Element.HotTrackFrameColor = 10211293
-      Appearance.Element.HotTrackGradientFromColor = 14351615
-      Appearance.Element.HotTrackGradientToColor = 5101567
+      Appearance.Element.HotTrackFrameColor = 10386702
+      Appearance.Element.HotTrackGradientFromColor = 16511440
+      Appearance.Element.HotTrackGradientToColor = 16047498
       Appearance.Element.HotTrackGradientType = bkConcave
-      Appearance.Element.HotTrackInnerLightColor = 12972543
-      Appearance.Element.HotTrackInnerDarkColor = 8045272
+      Appearance.Element.HotTrackInnerLightColor = 16445385
+      Appearance.Element.HotTrackInnerDarkColor = 12687889
       Appearance.Element.HotTrackCaptionColor = 8864367
       Appearance.Element.HotTrackBrightnessChange = 40
-      Appearance.Element.ActiveFrameColor = 5535371
-      Appearance.Element.ActiveGradientFromColor = 7126014
-      Appearance.Element.ActiveGradientToColor = 4035324
+      Appearance.Element.ActiveFrameColor = 7823883
+      Appearance.Element.ActiveGradientFromColor = 16046978
+      Appearance.Element.ActiveGradientToColor = 15516990
       Appearance.Element.ActiveGradientType = bkConcave
-      Appearance.Element.ActiveInnerLightColor = 961020
-      Appearance.Element.ActiveInnerDarkColor = 961020
+      Appearance.Element.ActiveInnerLightColor = 15980666
+      Appearance.Element.ActiveInnerDarkColor = 7559947
       Appearance.Element.ActiveCaptionColor = 8405614
       Appearance.Element.Style = esRounded
       TabIndex = 0
@@ -131,20 +131,15 @@ object Form1: TForm1
         OverrideAppearance = False
         Visible = True
         Panes = (
-          'SpkPane2'
           'SpkPane3'
         )
-        object SpkPane2: TSpkPane
-          Caption = 'Файловые команды'
-          Visible = True
-          Items = (          )
-        end
         object SpkPane3: TSpkPane
           Caption = 'Справочники'
           Visible = True
           Items = (
             'SpkSmallButton1'
             'SpkSmallButton2'
+            'SpkSmallButton3'
           )
           object SpkSmallButton1: TSpkSmallButton
             Visible = True
@@ -160,11 +155,22 @@ object Form1: TForm1
           object SpkSmallButton2: TSpkSmallButton
             Visible = True
             Enabled = True
-            Caption = 'Сервисы'
+            Caption = 'Сервисы  '
+            OnClick = SpkSmallButton2Click
             GroupBehaviour = gbSingleItem
             HideFrameWhenIdle = False
             ShowCaption = True
-            TableBehaviour = tbContinuesRow
+            TableBehaviour = tbBeginsRow
+            ButtonKind = bkButton
+          end
+          object SpkSmallButton3: TSpkSmallButton
+            Visible = True
+            Enabled = True
+            Caption = 'Статус     '
+            GroupBehaviour = gbSingleItem
+            HideFrameWhenIdle = False
+            ShowCaption = True
+            TableBehaviour = tbBeginsRow
             ButtonKind = bkButton
           end
         end
@@ -220,7 +226,6 @@ object Form1: TForm1
           'SpkPane1'
         )
         object SpkPane1: TSpkPane
-          Caption = '?'
           Visible = True
           Items = (
             'SpkLargeButton1'
