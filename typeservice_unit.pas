@@ -1,4 +1,4 @@
-unit servis_unit;
+unit typeservice_unit;
 
 {$mode objfpc}{$H+}
 
@@ -6,23 +6,21 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, rxdbgrid, Forms, Controls, Graphics, Dialogs,
-  ExtCtrls, DbCtrls, Menus, StdCtrls;
+  ExtCtrls, StdCtrls, Menus;
 
 type
 
-  { TServis }
+  { TTypeservice }
 
-  TServis = class(TForm)
+  TTypeservice = class(TForm)
     Button1: TButton;
     MainMenu1: TMainMenu;
     MenuItem1: TMenuItem;
     MenuItem2: TMenuItem;
     Panel1: TPanel;
     RxDBGrid1: TRxDBGrid;
-    Splitter1: TSplitter;
     procedure Button1Click(Sender: TObject);
     procedure MenuItem2Click(Sender: TObject);
-    procedure Panel1Click(Sender: TObject);
   private
 
   public
@@ -30,27 +28,22 @@ type
   end;
 
 var
-  Servis: TServis;
+  Typeservice: TTypeservice;
 
 implementation
 
 {$R *.lfm}
 
-{ TServis }
+{ TTypeservice }
 
-procedure TServis.Button1Click(Sender: TObject);
+procedure TTypeservice.Button1Click(Sender: TObject);
 begin
    Close;
 end;
 
-procedure TServis.MenuItem2Click(Sender: TObject);
+procedure TTypeservice.MenuItem2Click(Sender: TObject);
 begin
    Close;
-end;
-
-procedure TServis.Panel1Click(Sender: TObject);
-begin
-
 end;
 
 end.

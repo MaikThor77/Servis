@@ -1,16 +1,16 @@
-object Status: TStatus
+object Typeservice: TTypeservice
   Left = 272
-  Height = 352
+  Height = 350
   Top = 250
-  Width = 896
-  Caption = 'Status'
-  ClientHeight = 333
-  ClientWidth = 896
+  Width = 938
+  Caption = 'Typeservice'
+  ClientHeight = 331
+  ClientWidth = 938
   Menu = MainMenu1
   LCLVersion = '6.0'
   object RxDBGrid1: TRxDBGrid
     Left = 0
-    Height = 333
+    Height = 331
     Top = 0
     Width = 648
     ColumnDefValues.BlobText = '(данные)'
@@ -24,7 +24,7 @@ object Status: TStatus
         Title.Orientation = toHorizontal
         Title.Caption = '№'
         Width = 20
-        FieldName = 'st_id'
+        FieldName = 'ty_id'
         EditButtons = <>
         Filter.IsNull = False
         Filter.IsAll = True
@@ -40,7 +40,7 @@ object Status: TStatus
         Title.Orientation = toHorizontal
         Title.Caption = 'Наименование'
         Width = 500
-        FieldName = 'st_name'
+        FieldName = 'ty_name'
         EditButtons = <>
         Filter.IsNull = False
         Filter.IsAll = True
@@ -117,28 +117,22 @@ object Status: TStatus
     FocusColor = clRed
     SelectedColor = clHighlight
     GridLineStyle = psSolid
-    DataSource = DataModule1.DSstatus
+    DataSource = DataModule1.DStypeservice
     FixedCols = 0
     Options = [dgEditing, dgTitles, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
     ParentColor = False
     TabOrder = 0
   end
-  object Splitter1: TSplitter
-    Left = 648
-    Height = 333
-    Top = 0
-    Width = 1
-  end
   object Panel1: TPanel
-    Left = 649
-    Height = 333
+    Left = 648
+    Height = 331
     Top = 0
-    Width = 247
+    Width = 290
     Align = alClient
-    ClientHeight = 333
-    ClientWidth = 247
+    ClientHeight = 331
+    ClientWidth = 290
     ParentColor = False
-    TabOrder = 2
+    TabOrder = 1
     object Button1: TButton
       Left = 88
       Height = 25
@@ -150,8 +144,8 @@ object Status: TStatus
     end
   end
   object MainMenu1: TMainMenu
-    Left = 48
-    Top = 160
+    Left = 80
+    Top = 149
     object MenuItem1: TMenuItem
       Caption = '&File'
       object MenuItem2: TMenuItem

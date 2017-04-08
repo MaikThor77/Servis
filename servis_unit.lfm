@@ -140,6 +140,7 @@ object Servis: TServis
     ClientWidth = 256
     ParentColor = False
     TabOrder = 2
+    OnClick = Panel1Click
     object Button1: TButton
       Left = 88
       Height = 25

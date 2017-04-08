@@ -14,7 +14,7 @@
       <UseVersionInfo Value="True"/>
       <AutoIncrementBuild Value="True"/>
       <MajorVersionNr Value="1"/>
-      <BuildNr Value="16"/>
+      <BuildNr Value="75"/>
       <Attributes pvaPreRelease="True"/>
       <StringTable ProductVersion="0.0.0.0"/>
     </VersionInfo>
@@ -29,30 +29,33 @@
         <FormatVersion Value="1"/>
       </local>
     </RunParams>
-    <RequiredPackages Count="7">
+    <RequiredPackages Count="8">
       <Item1>
-        <PackageName Value="bs_Controls"/>
+        <PackageName Value="pl_luicontrols"/>
       </Item1>
       <Item2>
-        <PackageName Value="pl_richmemo"/>
+        <PackageName Value="bs_Controls"/>
       </Item2>
       <Item3>
-        <PackageName Value="pl_zeosdbo"/>
+        <PackageName Value="pl_richmemo"/>
       </Item3>
       <Item4>
-        <PackageName Value="FCL"/>
+        <PackageName Value="pl_zeosdbo"/>
       </Item4>
       <Item5>
-        <PackageName Value="pl_rx"/>
+        <PackageName Value="FCL"/>
       </Item5>
       <Item6>
-        <PackageName Value="pl_spktoolbar"/>
+        <PackageName Value="pl_rx"/>
       </Item6>
       <Item7>
-        <PackageName Value="LCL"/>
+        <PackageName Value="pl_spktoolbar"/>
       </Item7>
+      <Item8>
+        <PackageName Value="LCL"/>
+      </Item8>
     </RequiredPackages>
-    <Units Count="6">
+    <Units Count="8">
       <Unit0>
         <Filename Value="service.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -82,14 +85,30 @@
         <Filename Value="servis_unit.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="Servis"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
       </Unit4>
       <Unit5>
         <Filename Value="status_unit.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="Status"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
       </Unit5>
+      <Unit6>
+        <Filename Value="typeservice_unit.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="Typeservice"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+      </Unit6>
+      <Unit7>
+        <Filename Value="people_unit.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="People"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+      </Unit7>
     </Units>
   </ProjectOptions>
   <CompilerOptions>
