@@ -1,3 +1,4 @@
+{$Include param.ini}
 unit company_unit;
 
 {$mode objfpc}{$H+}

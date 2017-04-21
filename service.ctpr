@@ -14,7 +14,7 @@
       <UseVersionInfo Value="True"/>
       <AutoIncrementBuild Value="True"/>
       <MajorVersionNr Value="1"/>
-      <BuildNr Value="170"/>
+      <BuildNr Value="186"/>
       <Attributes pvaPreRelease="True"/>
       <StringTable ProductVersion="0.0.0.0"/>
     </VersionInfo>

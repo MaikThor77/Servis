@@ -1,3 +1,4 @@
+{$Include param.ini}
 unit splash_unit;
 
 {$mode objfpc}{$H+}

@@ -1,3 +1,4 @@
+{$Include param.ini}
 unit data_unit;
 
 {$mode objfpc}{$H+}
@@ -90,6 +91,7 @@ type
     Zpeople: TZQuery;
     Ztypeservicety_id: TLongintField;
     Ztypeservicety_name: TStringField;
+    procedure DataModuleCreate(Sender: TObject);
     procedure PQTEventMonitor1EventAlert(Sender: TObject; EventName: string;
       EventCount: longint; var CancelAlerts: boolean);
     procedure Zapplicationap_masGetText(Sender: TField; var aText: string;
@@ -136,7 +138,15 @@ implementation
 procedure TDataModule1.PQTEventMonitor1EventAlert(Sender: TObject;
   EventName: string; EventCount: longint; var CancelAlerts: boolean);
 begin
-   MessageDlg('Е444сть данные',mtError, mbOKCancel, 0);
+  {$IfDef TESTMODE}
+  MessageDlg(EventName,mtError, mbOKCancel, 0);
+  {$EndIf}
+   (DataModule1.FindComponent('Z'+EventName) as TZQuery).Refresh;
+end;
+
+procedure TDataModule1.DataModuleCreate(Sender: TObject);
+begin
+
 end;
 
 procedure TDataModule1.Zapplicationap_masGetText(Sender: TField;

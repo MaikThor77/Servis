@@ -149,3 +149,81 @@ INSERT INTO application VALUES (3,4,'неработает что-то 3','2002-1
   '2002-12-20 18:00:00',6,4,7,9,2,'решение',NULL,'2002-12-22 18:00:00',
   '2002-12-23 18:00:00','место 3');
 ALTER SEQUENCE application_ap_id_seq RESTART WITH 4;
+
+-- DROP TRIGGER "1" ON public.application;
+
+CREATE TRIGGER "application"
+  AFTER INSERT OR UPDATE OR DELETE
+  ON public.application
+  FOR EACH ROW
+  EXECUTE PROCEDURE public.emp_stamp();
+CREATE TRIGGER "company"
+  AFTER INSERT OR UPDATE OR DELETE
+  ON public.company
+  FOR EACH ROW
+  EXECUTE PROCEDURE public.emp_stamp();
+CREATE TRIGGER "mservice"
+  AFTER INSERT OR UPDATE OR DELETE
+  ON public.mservice
+  FOR EACH ROW
+  EXECUTE PROCEDURE public.emp_stamp();
+CREATE TRIGGER "people"
+  AFTER INSERT OR UPDATE OR DELETE
+  ON public.people
+  FOR EACH ROW
+  EXECUTE PROCEDURE public.emp_stamp();
+CREATE TRIGGER "service"
+  AFTER INSERT OR UPDATE OR DELETE
+  ON public.service
+  FOR EACH ROW
+  EXECUTE PROCEDURE public.emp_stamp();
+CREATE TRIGGER "status"
+  AFTER INSERT OR UPDATE OR DELETE
+  ON public.status
+  FOR EACH ROW
+  EXECUTE PROCEDURE public.emp_stamp();
+CREATE TRIGGER "typeservice"
+  AFTER INSERT OR UPDATE OR DELETE
+  ON public.typeservice
+  FOR EACH ROW
+  EXECUTE PROCEDURE public.emp_stamp();
+
+CREATE OR REPLACE FUNCTION public.emp_stamp()
+  RETURNS trigger AS
+$BODY$  
+    BEGIN
+	IF (TG_TABLE_NAME = 'application') THEN 
+	    NOTIFY application;
+	END IF;
+	IF (TG_TABLE_NAME = 'company') THEN 
+	    NOTIFY company;
+	END IF;
+	IF (TG_TABLE_NAME = 'mservice') THEN 
+	    NOTIFY mservice;
+	END IF;
+	IF (TG_TABLE_NAME = 'people') THEN 
+	    NOTIFY people;
+	END IF;
+	IF (TG_TABLE_NAME = 'service') THEN 
+	    NOTIFY service;
+	END IF;
+	IF (TG_TABLE_NAME = 'status') THEN 
+	    NOTIFY status;
+	END IF;
+	IF (TG_TABLE_NAME = 'typeservice') THEN 
+	    NOTIFY typeservice;
+	END IF;
+
+        IF (TG_OP = 'DELETE') THEN
+--            INSERT INTO emp_audit SELECT 'D', now(), user, OLD.*;
+            RETURN OLD;
+        ELSIF (TG_OP = 'UPDATE') THEN
+--            INSERT INTO emp_audit SELECT 'U', now(), user, NEW.*;
+            RETURN NEW;
+        ELSIF (TG_OP = 'INSERT') THEN
+--            INSERT INTO emp_audit SELECT 'I', now(), user, NEW.*;
+            RETURN NEW;
+        END IF;
+        RETURN NULL; -- возвращаемое значение для триггера AFTER не имеет значения
+     END;$BODY$
+  LANGUAGE plpgsql VOLATILE

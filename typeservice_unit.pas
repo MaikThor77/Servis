@@ -1,3 +1,4 @@
+{$Include param.ini}
 unit typeservice_unit;
 
 {$mode objfpc}{$H+}

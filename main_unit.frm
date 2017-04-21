@@ -8,7 +8,7 @@ object Form1: TForm1
   ClientWidth = 1360
   Menu = MainMenu1
   OnCreate = FormCreate
-  LCLVersion = '6.0'
+  LCLVersion = '6.1'
   WindowState = wsMaximized
   object SpkToolbar1: TSpkToolbar
     Left = 0
@@ -206,7 +206,7 @@ object Form1: TForm1
         )
         object SpkLargeButton1: TSpkLargeButton
           Visible = True
-          Enabled = False
+          Enabled = True
           Caption = 'Обнулить базу'
           OnClick = SpkLargeButton1Click
           LargeImageIndex = 3
@@ -420,11 +420,11 @@ object Form1: TForm1
         end      
         item
           PickList.Strings = (
-            'Запрос информации'
             'Инцедент'
             'Запрос на обслуживания'
             'Изменение'
             'Обращение'
+            '111'
           )
           Title.Alignment = taCenter
           Title.Orientation = toHorizontal

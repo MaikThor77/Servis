@@ -1,3 +1,4 @@
+{$Include param.ini}
 unit status_unit;
 
 {$mode objfpc}{$H+}

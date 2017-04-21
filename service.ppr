@@ -13,6 +13,9 @@ typeservice_unit, people_unit, splash_unit, pl_zeosdbo;
 {$R *.res}
 
 begin
+{ TODO : - Добавление записей отдельными формами }
+{ TODO : - поле заказчик }
+{ TODO : - поле подробно }
 
 RequireDerivedFormResource:=True;
 Application.Initialize;

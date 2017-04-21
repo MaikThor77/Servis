@@ -6,3 +6,4 @@ service.ico
 lib
 service.exe
 *.dll
+win.xml
