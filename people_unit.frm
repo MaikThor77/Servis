@@ -1,7 +1,7 @@
 object People: TPeople
-  Left = 200
+  Left = 329
   Height = 402
-  Top = 0
+  Top = 114
   Width = 972
   Caption = 'People'
   ClientHeight = 383

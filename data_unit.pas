@@ -5,8 +5,9 @@ unit data_unit;
 interface
 
 uses
-  Classes, SysUtils, Dialogs, db, FileUtil, ZConnection, ZDataset, ZSequence,
-  ZSqlProcessor;
+  Classes, SysUtils, Dialogs, splash_unit, db, BufDataset, sqldb, pqconnection,
+  FileUtil, PQTEventMonitor, ZConnection, ZDataset, ZSequence, ZSqlProcessor,
+  ZAbstractConnection, ZPgEventAlerter;
 
 type
 
@@ -20,6 +21,8 @@ type
     DSstatus: TDataSource;
     DStypeservice: TDataSource;
     DSpeople: TDataSource;
+    PQConnection1: TPQConnection;
+    PQTEventMonitor1: TPQTEventMonitor;
     StringField1: TStringField;
     StringField10: TStringField;
     StringField11: TStringField;
@@ -38,7 +41,6 @@ type
     Zapplicationap_plan: TDateTimeField;
     Zapplicationap_srok: TDateTimeField;
     Zapplicationap_start: TDateTimeField;
-    ZConnection2: TZConnection;
     Zmservisms_peo_id: TSmallintField;
     Zmservisms_ser_id: TSmallintField;
     Zapplication: TZQuery;
@@ -64,6 +66,7 @@ type
     Zpeoplepe_name_i: TStringField;
     Zpeoplepe_name_o: TStringField;
     Zpeoplepe_tel: TStringField;
+    ZPgEventAlerter1: TZPgEventAlerter;
     ZSequenceapplication: TZSequence;
     ZSequencestatus: TZSequence;
     ZSequencetypeservice: TZSequence;
@@ -87,19 +90,18 @@ type
     Zpeople: TZQuery;
     Ztypeservicety_id: TLongintField;
     Ztypeservicety_name: TStringField;
-    procedure DSservisDataChange(Sender: TObject; Field: TField);
+    procedure PQTEventMonitor1EventAlert(Sender: TObject; EventName: string;
+      EventCount: longint; var CancelAlerts: boolean);
     procedure Zapplicationap_masGetText(Sender: TField; var aText: string;
       DisplayText: Boolean);
     procedure Zapplicationap_menGetText(Sender: TField; var aText: string;
       DisplayText: Boolean);
     procedure ZapplicationDeleteError(DataSet: TDataSet; E: EDatabaseError;
       var DataAction: TDataAction);
-    procedure ZcompanyBeforeDelete(DataSet: TDataSet);
     procedure ZcompanyDeleteError(DataSet: TDataSet; E: EDatabaseError;
       var DataAction: TDataAction);
-    procedure ZmservisApplyUpdateError(DataSet: TDataSet; E: EDatabaseError;
-      var DataAction: TDataAction);
-    procedure ZmservisBeforeInsert(DataSet: TDataSet);
+    procedure ZConnection1AfterConnect(Sender: TObject);
+    procedure ZConnection1BeforeConnect(Sender: TObject);
     procedure ZmservisDeleteError(DataSet: TDataSet; E: EDatabaseError;
       var DataAction: TDataAction);
     procedure ZmservisPostError(DataSet: TDataSet; E: EDatabaseError;
@@ -108,6 +110,8 @@ type
       var DataAction: TDataAction);
     procedure Zpeoplepe_FIOGetText(Sender: TField; var aText: string;
       DisplayText: Boolean);
+    procedure ZPgEventAlerter1Notify(Sender: TObject; Event: string;
+      ProcessID: Integer; Payload: string);
     procedure ZservisDeleteError(DataSet: TDataSet; E: EDatabaseError;
       var DataAction: TDataAction);
     procedure ZstatusDeleteError(DataSet: TDataSet; E: EDatabaseError;
@@ -125,18 +129,14 @@ var
 
 implementation
 
-{$R *.lfm}
+{$R *.frm}
 
 { TDataModule1 }
 
-procedure TDataModule1.ZcompanyBeforeDelete(DataSet: TDataSet);
+procedure TDataModule1.PQTEventMonitor1EventAlert(Sender: TObject;
+  EventName: string; EventCount: longint; var CancelAlerts: boolean);
 begin
-
-end;
-
-procedure TDataModule1.DSservisDataChange(Sender: TObject; Field: TField);
-begin
-
+   MessageDlg('Е444сть данные',mtError, mbOKCancel, 0);
 end;
 
 procedure TDataModule1.Zapplicationap_masGetText(Sender: TField;
@@ -171,15 +171,18 @@ begin
   end;
 end;
 
-procedure TDataModule1.ZmservisApplyUpdateError(DataSet: TDataSet;
-  E: EDatabaseError; var DataAction: TDataAction);
+procedure TDataModule1.ZConnection1AfterConnect(Sender: TObject);
 begin
-
+  DataModule1.ZPgEventAlerter1.Connection := DataModule1.ZConnection1;
+  DataModule1.ZPgEventAlerter1.Active:=true;
+  Splash.ProgressBar1.Position :=Splash.ProgressBar1.Position+20;
+  Splash.Update;
 end;
 
-procedure TDataModule1.ZmservisBeforeInsert(DataSet: TDataSet);
+procedure TDataModule1.ZConnection1BeforeConnect(Sender: TObject);
 begin
-
+  Splash.ProgressBar1.Position :=Splash.ProgressBar1.Position+20;
+  Splash.Update;
 end;
 
 procedure TDataModule1.ZmservisDeleteError(DataSet: TDataSet;
@@ -216,6 +219,13 @@ procedure TDataModule1.Zpeoplepe_FIOGetText(Sender: TField; var aText: string;
   DisplayText: Boolean);
 begin
   aText := Zpeoplepe_name_f.Value + ' ' + Zpeoplepe_name_i.Value + ' ' + Zpeoplepe_name_o.Value;
+end;
+
+procedure TDataModule1.ZPgEventAlerter1Notify(Sender: TObject; Event: string;
+  ProcessID: Integer; Payload: string);
+begin
+//ShowMessage('Событие: '+Event+' , '+Payload);
+  MessageDlg('00000Есть данные',mtError, mbOKCancel, 0);
 end;
 
 procedure TDataModule1.ZservisDeleteError(DataSet: TDataSet; E: EDatabaseError;

@@ -14,7 +14,7 @@
       <UseVersionInfo Value="True"/>
       <AutoIncrementBuild Value="True"/>
       <MajorVersionNr Value="1"/>
-      <BuildNr Value="75"/>
+      <BuildNr Value="170"/>
       <Attributes pvaPreRelease="True"/>
       <StringTable ProductVersion="0.0.0.0"/>
     </VersionInfo>
@@ -31,19 +31,19 @@
     </RunParams>
     <RequiredPackages Count="8">
       <Item1>
-        <PackageName Value="pl_luicontrols"/>
+        <PackageName Value="pl_zeosdbo"/>
       </Item1>
       <Item2>
-        <PackageName Value="bs_Controls"/>
+        <PackageName Value="pl_luicontrols"/>
       </Item2>
       <Item3>
-        <PackageName Value="pl_richmemo"/>
+        <PackageName Value="bs_Controls"/>
       </Item3>
       <Item4>
-        <PackageName Value="pl_zeosdbo"/>
+        <PackageName Value="pl_richmemo"/>
       </Item4>
       <Item5>
-        <PackageName Value="FCL"/>
+        <PackageName Value="adFCL"/>
       </Item5>
       <Item6>
         <PackageName Value="pl_rx"/>
@@ -52,12 +52,12 @@
         <PackageName Value="pl_spktoolbar"/>
       </Item7>
       <Item8>
-        <PackageName Value="LCL"/>
+        <PackageName Value="adLCL"/>
       </Item8>
     </RequiredPackages>
-    <Units Count="8">
+    <Units Count="9">
       <Unit0>
-        <Filename Value="service.lpr"/>
+        <Filename Value="service.ppr"/>
         <IsPartOfProject Value="True"/>
       </Unit0>
       <Unit1>
@@ -109,6 +109,13 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
       </Unit7>
+      <Unit8>
+        <Filename Value="splash_unit.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="Splash"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+      </Unit8>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

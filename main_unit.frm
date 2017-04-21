@@ -206,7 +206,7 @@ object Form1: TForm1
         )
         object SpkLargeButton1: TSpkLargeButton
           Visible = True
-          Enabled = True
+          Enabled = False
           Caption = 'Обнулить базу'
           OnClick = SpkLargeButton1Click
           LargeImageIndex = 3

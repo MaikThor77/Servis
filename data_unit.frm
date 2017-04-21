@@ -1,8 +1,8 @@
 object DataModule1: TDataModule1
   OldCreateOrder = False
   Height = 333
-  HorizontalOffset = 272
-  VerticalOffset = 250
+  HorizontalOffset = 129
+  VerticalOffset = 327
   Width = 868
   object DScompany: TDataSource
     DataSet = Zcompany
@@ -17,15 +17,17 @@ object DataModule1: TDataModule1
       'codepage='
     )
     Connected = True
-    DesignConnection = True
+    BeforeConnect = ZConnection1BeforeConnect
+    AfterConnect = ZConnection1AfterConnect
     HostName = 'ec2-54-247-120-169.eu-west-1.compute.amazonaws.com'
     Port = 0
     Database = 'd61ek4bmuoba6f'
     User = 'ezkjvqivebqdce'
     Password = '33c7253d89884a20901e202aba84397332055e8f2cb67c899cb54e4d3b715b39'
-    Protocol = 'postgresql-9'
+    Protocol = 'postgresql'
+    LibraryLocation = 'C:\W\Servis\libpq.dll'
     Left = 40
-    Top = 72
+    Top = 80
   end
   object Zcompany: TZQuery
     Connection = ZConnection1
@@ -78,7 +80,6 @@ object DataModule1: TDataModule1
   end
   object DSservis: TDataSource
     DataSet = Zservis
-    OnDataChange = DSservisDataChange
     Left = 232
     Top = 136
   end
@@ -160,7 +161,6 @@ object DataModule1: TDataModule1
   end
   object DSstatus: TDataSource
     DataSet = Zstatus
-    OnDataChange = DSservisDataChange
     Left = 336
     Top = 136
   end
@@ -204,7 +204,6 @@ object DataModule1: TDataModule1
   end
   object DStypeservice: TDataSource
     DataSet = Ztypeservice
-    OnDataChange = DSservisDataChange
     Left = 456
     Top = 136
   end
@@ -352,13 +351,11 @@ object DataModule1: TDataModule1
   end
   object DSpeople: TDataSource
     DataSet = Zpeople
-    OnDataChange = DSservisDataChange
     Left = 576
     Top = 136
   end
   object DSmservis: TDataSource
     DataSet = Zmservis
-    OnDataChange = DSservisDataChange
     Left = 664
     Top = 136
   end
@@ -728,26 +725,8 @@ object DataModule1: TDataModule1
   end
   object DSapplication: TDataSource
     DataSet = Zapplication
-    OnDataChange = DSservisDataChange
     Left = 752
     Top = 136
-  end
-  object ZConnection2: TZConnection
-    ControlsCodePage = cCP_UTF8
-    AutoEncodeStrings = False
-    ClientCodepage = 'UTF8'
-    Properties.Strings = (
-      'AutoEncodeStrings='
-      'codepage=UTF8'
-    )
-    HostName = '127.0.0.1'
-    Port = 0
-    Database = 'SER'
-    User = 'postgres'
-    Password = 'postgres'
-    Protocol = 'postgresql-9'
-    Left = 40
-    Top = 272
   end
   object ZSQLProcessor1: TZSQLProcessor
     Params = <>
@@ -907,6 +886,41 @@ object DataModule1: TDataModule1
     Connection = ZConnection1
     Delimiter = ';'
     Left = 40
-    Top = 128
+    Top = 136
+  end
+  object ZPgEventAlerter1: TZPgEventAlerter
+    Connection = ZConnection1
+    Active = False
+    Events.Strings = (
+      'virtual'
+    )
+    Interval = 500
+    OnNotify = ZPgEventAlerter1Notify
+    ChildEvents.Strings = (
+      'virtual'
+    )
+    Left = 48
+    Top = 232
+  end
+  object PQTEventMonitor1: TPQTEventMonitor
+    Connection = PQConnection1
+    Events.Strings = (
+      'virtual'
+    )
+    Registered = False
+    OnEventAlert = PQTEventMonitor1EventAlert
+    Left = 472
+    Top = 232
+  end
+  object PQConnection1: TPQConnection
+    Connected = False
+    LoginPrompt = False
+    DatabaseName = 'd61ek4bmuoba6f'
+    KeepConnection = False
+    Password = '33c7253d89884a20901e202aba84397332055e8f2cb67c899cb54e4d3b715b39'
+    UserName = 'ezkjvqivebqdce'
+    HostName = 'ec2-54-247-120-169.eu-west-1.compute.amazonaws.com'
+    Left = 368
+    Top = 232
   end
 end

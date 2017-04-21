@@ -95,14 +95,19 @@ var
 
 implementation
 
-{$R *.lfm}
+{$R *.frm}
 
 { TForm1 }
 
 procedure TForm1.FormCreate(Sender: TObject);
 begin
+//  DataModule1.PQTEventMonitor1.RegisterEvents;
+  DataModule1.ZPgEventAlerter1.Events.Text:='virtual';
+  DataModule1.ZPgEventAlerter1.Connection:=DataModule1.ZConnection1;
+  DataModule1.ZPgEventAlerter1.Active:=true;
   Caption :='Service ver. '+RxVersionInfo1.FileVersion ;
   StatusBar1.Panels[1].Text := DataModule1.ZConnection1.Database + ' на сервере: ' + DataModule1.ZConnection1.HostName;
+  DataModule1.ZConnection1.Connect;
 end;
 
 procedure TForm1.MenuItem11Click(Sender: TObject);

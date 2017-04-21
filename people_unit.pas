@@ -38,10 +38,12 @@ var
 
 implementation
 
-{$R *.lfm}
+{$R *.frm}
 
 { TPeople }
- { TODO : - Добавление записей отдельными формами }
+{ TODO : - Добавление записей отдельными формами }
+{ TODO : - поле заказчик }
+{ TODO : - поле подробно }
 procedure TPeople.MenuItem2Click(Sender: TObject);
 begin
    Close;
