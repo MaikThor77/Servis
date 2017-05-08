@@ -6,11 +6,11 @@ unit main_unit;
 interface
 
 uses
-  Classes, SysUtils, FileUtil, RxVersInfo, rxdbgrid,
-  SpkToolbar, spkt_Tab, spkt_Pane, spkt_Buttons, spkt_Checkboxes, Forms,
-  Controls, Graphics, Dialogs, ActnList, StdActns, Menus, ExtCtrls, StdCtrls,
-  ComCtrls, company_unit, servis_unit, status_unit, typeservice_unit,
-  people_unit, data_unit, db;
+  Classes, SysUtils, FileUtil, RxVersInfo, rxdbgrid, RxIniPropStorage,
+  SpkToolbar, spkt_Tab, spkt_Pane, spkt_Buttons,
+  spkt_Checkboxes, Forms, Controls, Graphics, Dialogs, ActnList, StdActns,
+  Menus, ExtCtrls, StdCtrls, ComCtrls, company_unit, servis_unit, status_unit,
+  typeservice_unit, people_unit, data_unit, db;
 
 type
 
@@ -44,6 +44,7 @@ type
     MenuItem9: TMenuItem;
     Panel1: TPanel;
     RxDBGrid1: TRxDBGrid;
+    RxIniPropStorage1: TRxIniPropStorage;
     RxVersionInfo1: TRxVersionInfo;
     SpkCheckbox1: TSpkCheckbox;
     SpkLargeButton1: TSpkLargeButton;
@@ -71,6 +72,7 @@ type
     procedure AcQuitExecute(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure MenuItem11Click(Sender: TObject);
+    procedure MenuItem12Click(Sender: TObject);
     procedure MenuItem2Click(Sender: TObject);
     procedure MenuItem4Click(Sender: TObject);
     procedure MenuItem5Click(Sender: TObject);
@@ -79,6 +81,7 @@ type
     procedure MenuItem8Click(Sender: TObject);
     procedure RxDBGrid1AfterQuickSearch(Sender: TObject; Field: TField;
       var AValue: string);
+    procedure RxIniPropStorage1RestoreProperties(Sender: TObject);
     procedure SpkLargeButton1Click(Sender: TObject);
     procedure SpkSmallButton1Click(Sender: TObject);
     procedure SpkSmallButton2Click(Sender: TObject);
@@ -110,11 +113,18 @@ begin
   DataModule1.ZConnection1.Connect;
   DataModule1.PQConnection1.Connected:=True;
   DataModule1.PQTEventMonitor1.Registered:=True;
+  //RxIniPropStorage1.WriteBoolean('init',False);
+  SpkLargeButton1.Enabled:=RxIniPropStorage1.ReadBoolean('init',False);
 end;
 
 procedure TForm1.MenuItem11Click(Sender: TObject);
 begin
   people.Show;
+end;
+
+procedure TForm1.MenuItem12Click(Sender: TObject);
+begin
+
 end;
 
 procedure TForm1.MenuItem2Click(Sender: TObject);
@@ -149,6 +159,11 @@ end;
 
 procedure TForm1.RxDBGrid1AfterQuickSearch(Sender: TObject; Field: TField;
   var AValue: string);
+begin
+
+end;
+
+procedure TForm1.RxIniPropStorage1RestoreProperties(Sender: TObject);
 begin
 
 end;
