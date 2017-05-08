@@ -20,7 +20,7 @@ DisableProgramGroupPage=yes
 OutputBaseFilename=setup
 Compression=lzma
 SolidCompression=yes
-DefaultGroupName=My Program
+DefaultGroupName=Service
 UninstallDisplayIcon={app}\Service.exe
 ArchitecturesInstallIn64BitMode=x64
 
@@ -49,6 +49,7 @@ Source: "C:\W\Servis\UTILS\lib64\ssleay32.dll"; DestDir: "{app}"; Flags: ignorev
 
 [Icons]
 Name: "{commonprograms}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"
+Name: "{group}\Service"; Filename: "{app}\Service.exe"
 Name: "{commondesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: desktopicon
 
 [Run]

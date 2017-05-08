@@ -39,8 +39,6 @@ object Company: TCompany
         Options = [coCustomizeVisible]
       end    
       item
-        Alignment = taLeftJustify
-        Layout = tlCenter
         Title.Alignment = taCenter
         Title.Orientation = toHorizontal
         Title.Caption = 'Наименование'
@@ -77,8 +75,9 @@ object Company: TCompany
       item
         Title.Alignment = taCenter
         Title.Orientation = toHorizontal
-        Title.Caption = 'Title'
-        Visible = False
+        Title.Caption = 'Полное наименование'
+        Width = 200
+        FieldName = 'co_adress_big'
         EditButtons = <>
         Filter.IsNull = False
         Filter.IsAll = True

@@ -42,6 +42,7 @@ type
     Zapplicationap_plan: TDateTimeField;
     Zapplicationap_srok: TDateTimeField;
     Zapplicationap_start: TDateTimeField;
+    Zcompanyco_adress_big: TStringField;
     Zmservisms_peo_id: TSmallintField;
     Zmservisms_ser_id: TSmallintField;
     Zapplication: TZQuery;

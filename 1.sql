@@ -5,7 +5,8 @@ CREATE TABLE company             -- компании заказчики
 (
  co_id SERIAL   NOT NULL,        -- ID заказчика
  co_name VARCHAR(40)  not null,  -- наименование заказчика
- co_adress TEXT   null,          -- адрес заказчика
+ co_adress TEXT  DEFAULT 'адрес',          -- адрес заказчика
+ co_adress_big VARCHAR(40) NULL,          --  полное наименование заказчика
 
   primary key (co_id)
 );

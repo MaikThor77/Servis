@@ -71,6 +71,16 @@ object DataModule1: TDataModule1
       BlobType = ftMemo
       Transliterate = False
     end
+    object Zcompanyco_adress_big: TStringField
+      FieldKind = fkData
+      FieldName = 'co_adress_big'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 160
+    end
   end
   object ZSequenceCompany: TZSequence
     Connection = ZConnection1
@@ -738,7 +748,8 @@ object DataModule1: TDataModule1
       '('
       ' co_id SERIAL   NOT NULL,        -- ID заказчика'
       ' co_name VARCHAR(40)  not null,  -- наименование заказчика'
-      ' co_adress TEXT   null,          -- адрес заказчика'
+      ' co_adress TEXT  DEFAULT ''адрес'',          -- адрес заказчика'
+      ' co_adress_big VARCHAR(40) NULL,          --  полное наименование заказчика'
       ''
       '  primary key (co_id)'
       ');'
