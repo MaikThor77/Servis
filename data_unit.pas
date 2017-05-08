@@ -116,6 +116,8 @@ type
       ProcessID: Integer; Payload: string);
     procedure ZservisDeleteError(DataSet: TDataSet; E: EDatabaseError;
       var DataAction: TDataAction);
+    procedure ZSQLProcessor1AfterExecute(Processor: TZSQLProcessor;
+      StatementIndex: Integer);
     procedure ZstatusDeleteError(DataSet: TDataSet; E: EDatabaseError;
       var DataAction: TDataAction);
     procedure ZtypeserviceDeleteError(DataSet: TDataSet; E: EDatabaseError;
@@ -246,6 +248,12 @@ begin
      Abort;
    finally
    end;
+end;
+
+procedure TDataModule1.ZSQLProcessor1AfterExecute(Processor: TZSQLProcessor;
+  StatementIndex: Integer);
+begin
+
 end;
 
 procedure TDataModule1.ZstatusDeleteError(DataSet: TDataSet; E: EDatabaseError;

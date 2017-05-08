@@ -7,3 +7,6 @@ lib
 service.exe
 *.dll
 win.xml
+Output
+/log.txt
+/s0.exe

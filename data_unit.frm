@@ -1,10 +1,10 @@
 object DataModule1: TDataModule1
   OnCreate = DataModuleCreate
   OldCreateOrder = False
-  Height = 333
+  Height = 409
   HorizontalOffset = 129
   VerticalOffset = 327
-  Width = 868
+  Width = 900
   object DScompany: TDataSource
     DataSet = Zcompany
     Left = 136
@@ -26,7 +26,6 @@ object DataModule1: TDataModule1
     User = 'ezkjvqivebqdce'
     Password = '33c7253d89884a20901e202aba84397332055e8f2cb67c899cb54e4d3b715b39'
     Protocol = 'postgresql'
-    LibraryLocation = 'C:\W\Servis\libpq.dll'
     Left = 40
     Top = 80
   end
@@ -35,7 +34,7 @@ object DataModule1: TDataModule1
     OnDeleteError = ZcompanyDeleteError
     Active = True
     SQL.Strings = (
-      'select * from company'
+      'select * from company order by co_id'
     )
     Params = <>
     Sequence = ZSequenceCompany
@@ -89,7 +88,7 @@ object DataModule1: TDataModule1
     OnDeleteError = ZservisDeleteError
     Active = True
     SQL.Strings = (
-      'select * from service'
+      'select * from service order by se_id'
     )
     Params = <>
     Sequence = ZSequenceservis
@@ -133,7 +132,7 @@ object DataModule1: TDataModule1
     OnDeleteError = ZstatusDeleteError
     Active = True
     SQL.Strings = (
-      'select * from status'
+      'select * from status order by st_id'
     )
     Params = <>
     Sequence = ZSequencestatus
@@ -176,7 +175,7 @@ object DataModule1: TDataModule1
     OnDeleteError = ZtypeserviceDeleteError
     Active = True
     SQL.Strings = (
-      'select * from typeservice'
+      'select * from typeservice order by ty_id'
     )
     Params = <>
     Sequence = ZSequencetypeservice
@@ -219,7 +218,7 @@ object DataModule1: TDataModule1
     OnDeleteError = ZpeopleDeleteError
     Active = True
     SQL.Strings = (
-      'select * from people'
+      'select * from people order by pe_id'
     )
     Params = <>
     Sequence = ZSequencepeople
@@ -366,7 +365,7 @@ object DataModule1: TDataModule1
     OnPostError = ZmservisPostError
     Active = True
     SQL.Strings = (
-      'select * from mservice'
+      'select * from mservice order by ms_ser_id'
     )
     Params = <>
     MasterFields = 'pe_id'
@@ -418,7 +417,7 @@ object DataModule1: TDataModule1
     OnDeleteError = ZapplicationDeleteError
     Active = True
     SQL.Strings = (
-      'select * from application'
+      'select * from application order by ap_id'
     )
     Params = <>
     Sequence = ZSequenceapplication
@@ -964,6 +963,7 @@ object DataModule1: TDataModule1
     )
     Connection = ZConnection1
     Delimiter = ';'
+    AfterExecute = ZSQLProcessor1AfterExecute
     Left = 40
     Top = 136
   end
@@ -998,7 +998,7 @@ object DataModule1: TDataModule1
     Top = 232
   end
   object PQConnection1: TPQConnection
-    Connected = False
+    Connected = True
     LoginPrompt = False
     DatabaseName = 'd61ek4bmuoba6f'
     KeepConnection = False

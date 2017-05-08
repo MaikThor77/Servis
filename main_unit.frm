@@ -2,10 +2,10 @@ object Form1: TForm1
   Left = 100
   Height = 705
   Top = 142
-  Width = 1360
+  Width = 1356
   Caption = 'Servis'
-  ClientHeight = 686
-  ClientWidth = 1360
+  ClientHeight = 685
+  ClientWidth = 1356
   Menu = MainMenu1
   OnCreate = FormCreate
   LCLVersion = '6.1'
@@ -13,7 +13,7 @@ object Form1: TForm1
   object SpkToolbar1: TSpkToolbar
     Left = 0
     Top = 0
-    Width = 1360
+    Width = 1356
     Color = clGradientActiveCaption
     Appearance.Tab.TabHeaderFont.Color = 9126421
     Appearance.Tab.TabHeaderFont.Height = -11
@@ -206,7 +206,7 @@ object Form1: TForm1
         )
         object SpkLargeButton1: TSpkLargeButton
           Visible = True
-          Enabled = True
+          Enabled = False
           Caption = 'Обнулить базу'
           OnClick = SpkLargeButton1Click
           LargeImageIndex = 3
@@ -217,18 +217,18 @@ object Form1: TForm1
   end
   object Panel1: TPanel
     Left = 0
-    Height = 574
+    Height = 573
     Top = 112
-    Width = 1360
+    Width = 1356
     Align = alClient
-    ClientHeight = 574
-    ClientWidth = 1360
+    ClientHeight = 573
+    ClientWidth = 1356
     TabOrder = 1
     object RxDBGrid1: TRxDBGrid
       Left = 1
-      Height = 552
+      Height = 548
       Top = 1
-      Width = 1358
+      Width = 1354
       AfterQuickSearch = RxDBGrid1AfterQuickSearch
       ColumnDefValues.BlobText = '(данные)'
       TitleButtons = False
@@ -390,7 +390,8 @@ object Form1: TForm1
           Title.Alignment = taCenter
           Title.Orientation = toHorizontal
           Title.Caption = 'U'
-          Width = 20
+          Width = 0
+          Visible = False
           FieldName = 'ap_app_id'
           EditButtons = <>
           Filter.IsNull = False
@@ -420,11 +421,11 @@ object Form1: TForm1
         end      
         item
           PickList.Strings = (
+            'Запрос информации'
             'Инцедент'
             'Запрос на обслуживания'
             'Изменение'
             'Обращение'
-            '111'
           )
           Title.Alignment = taCenter
           Title.Orientation = toHorizontal
@@ -853,9 +854,9 @@ object Form1: TForm1
     end
     object StatusBar1: TStatusBar
       Left = 1
-      Height = 20
-      Top = 553
-      Width = 1358
+      Height = 23
+      Top = 549
+      Width = 1354
       Panels = <      
         item
           Text = 'База:'

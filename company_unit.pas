@@ -25,6 +25,7 @@ type
     procedure Button1Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure MenuItem2Click(Sender: TObject);
+    procedure RxDBGrid1ColExit(Sender: TObject);
     procedure ZcompanyAfterDelete(DataSet: TDataSet);
     procedure ZcompanyAfterInsert(DataSet: TDataSet);
     procedure ZcompanyDeleteError(DataSet: TDataSet; E: EDatabaseError;
@@ -47,6 +48,11 @@ implementation
 procedure TCompany.MenuItem2Click(Sender: TObject);
 begin
   close;
+end;
+
+procedure TCompany.RxDBGrid1ColExit(Sender: TObject);
+begin
+
 end;
 
 procedure TCompany.ZcompanyAfterDelete(DataSet: TDataSet);

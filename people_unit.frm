@@ -4,17 +4,17 @@ object People: TPeople
   Top = 114
   Width = 972
   Caption = 'People'
-  ClientHeight = 383
+  ClientHeight = 382
   ClientWidth = 972
   Menu = MainMenu1
-  LCLVersion = '6.0'
+  LCLVersion = '6.1'
   object Panel1: TPanel
     Left = 0
-    Height = 239
+    Height = 238
     Top = 144
     Width = 972
     Align = alClient
-    ClientHeight = 239
+    ClientHeight = 238
     ClientWidth = 972
     ParentColor = False
     TabOrder = 0
@@ -39,7 +39,7 @@ object People: TPeople
     end
     object DBLookupComboBox1: TDBLookupComboBox
       Left = 104
-      Height = 21
+      Height = 23
       Top = 56
       Width = 100
       AutoComplete = True
@@ -54,33 +54,34 @@ object People: TPeople
     end
     object Label1: TLabel
       Left = 10
-      Height = 13
+      Height = 15
       Top = 11
-      Width = 31
+      Width = 33
       Caption = 'Адрес'
       ParentColor = False
     end
     object Label2: TLabel
       Left = 10
-      Height = 13
+      Height = 15
       Top = 56
-      Width = 49
+      Width = 56
       Caption = 'Компания'
       ParentColor = False
     end
     object GroupBox1: TGroupBox
       Left = 274
-      Height = 237
+      Height = 236
       Top = 1
       Width = 697
       Align = alRight
       Caption = 'Сервисы'
-      ClientHeight = 219
+      ClientHeight = 216
       ClientWidth = 693
       TabOrder = 3
+      Visible = False
       object RxDBGrid2: TRxDBGrid
         Left = 0
-        Height = 219
+        Height = 216
         Top = 0
         Width = 693
         ColumnDefValues.BlobText = '(данные)'

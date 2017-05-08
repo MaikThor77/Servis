@@ -4,14 +4,14 @@ object Company: TCompany
   Top = 250
   Width = 928
   Caption = 'Company'
-  ClientHeight = 324
+  ClientHeight = 323
   ClientWidth = 928
   Menu = MainMenu1
   OnCreate = FormCreate
-  LCLVersion = '6.0'
+  LCLVersion = '6.1'
   object RxDBGrid1: TRxDBGrid
     Left = 0
-    Height = 324
+    Height = 323
     Top = 0
     Width = 648
     ColumnDefValues.BlobText = '(данные)'
@@ -25,7 +25,7 @@ object Company: TCompany
         Title.Alignment = taCenter
         Title.Orientation = toHorizontal
         Title.Caption = '№'
-        Width = 20
+        Width = 25
         FieldName = 'co_id'
         EditButtons = <>
         Filter.IsNull = False
@@ -44,8 +44,26 @@ object Company: TCompany
         Title.Alignment = taCenter
         Title.Orientation = toHorizontal
         Title.Caption = 'Наименование'
-        Width = 308
+        Width = 313
         FieldName = 'co_name'
+        EditButtons = <>
+        Filter.IsNull = False
+        Filter.IsAll = True
+        Filter.DropDownRows = 0
+        Filter.EmptyValue = '(Пусто)'
+        Filter.AllValue = '(Все значения)'
+        Filter.EmptyFont.Style = [fsItalic]
+        Filter.ItemIndex = -1
+        Footers = <>
+      end    
+      item
+        MinSize = 0
+        Title.Alignment = taCenter
+        Title.Orientation = toHorizontal
+        Title.Caption = 'Адрес'
+        Width = 0
+        Visible = False
+        FieldName = 'co_adress'
         EditButtons = <>
         Filter.IsNull = False
         Filter.IsAll = True
@@ -59,10 +77,8 @@ object Company: TCompany
       item
         Title.Alignment = taCenter
         Title.Orientation = toHorizontal
-        Title.Caption = 'Адрес'
-        Width = 0
+        Title.Caption = 'Title'
         Visible = False
-        FieldName = 'co_adress'
         EditButtons = <>
         Filter.IsNull = False
         Filter.IsAll = True
@@ -147,18 +163,18 @@ object Company: TCompany
   end
   object Splitter1: TSplitter
     Left = 648
-    Height = 324
+    Height = 323
     Top = 0
     Width = 0
   end
   object Panel1: TPanel
     Left = 648
-    Height = 324
+    Height = 323
     Top = 0
     Width = 280
     Align = alClient
     Caption = 'Panel1'
-    ClientHeight = 324
+    ClientHeight = 323
     ClientWidth = 280
     TabOrder = 2
     object DBMemo1: TDBMemo
