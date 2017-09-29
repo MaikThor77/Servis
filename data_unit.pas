@@ -93,6 +93,7 @@ type
     Ztypeservicety_id: TLongintField;
     Ztypeservicety_name: TStringField;
     procedure DataModuleCreate(Sender: TObject);
+    procedure DSapplicationDataChange(Sender: TObject; Field: TField);
     procedure PQTEventMonitor1EventAlert(Sender: TObject; EventName: string;
       EventCount: longint; var CancelAlerts: boolean);
     procedure Zapplicationap_masGetText(Sender: TField; var aText: string;
@@ -148,6 +149,11 @@ begin
 end;
 
 procedure TDataModule1.DataModuleCreate(Sender: TObject);
+begin
+
+end;
+
+procedure TDataModule1.DSapplicationDataChange(Sender: TObject; Field: TField);
 begin
 
 end;

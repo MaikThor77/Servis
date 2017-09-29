@@ -10,7 +10,7 @@ uses
   SpkToolbar, spkt_Tab, spkt_Pane, spkt_Buttons,
   spkt_Checkboxes, Forms, Controls, Graphics, Dialogs, ActnList, StdActns,
   Menus, ExtCtrls, StdCtrls, ComCtrls, company_unit, servis_unit, status_unit,
-  typeservice_unit, people_unit, data_unit, db;
+  typeservice_unit, people_unit, data_unit, application_unit,db, Grids, DBGrids;
 
 type
 
@@ -70,6 +70,7 @@ type
     SpkToolbar1: TSpkToolbar;
     StatusBar1: TStatusBar;
     procedure AcQuitExecute(Sender: TObject);
+    procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormCreate(Sender: TObject);
     procedure MenuItem11Click(Sender: TObject);
     procedure MenuItem12Click(Sender: TObject);
@@ -81,6 +82,12 @@ type
     procedure MenuItem8Click(Sender: TObject);
     procedure RxDBGrid1AfterQuickSearch(Sender: TObject; Field: TField;
       var AValue: string);
+    procedure RxDBGrid1DblClick(Sender: TObject);
+    procedure RxDBGrid1DrawColumnCell(Sender: TObject; const Rect: TRect;
+      DataCol: Integer; Column: TColumn; State: TGridDrawState);
+    procedure RxDBGrid1GetBtnParams(Sender: TObject; Field: TField;
+      AFont: TFont; var Background: TColor; var SortMarker: TSortMarker;
+      IsDown: boolean);
     procedure RxIniPropStorage1RestoreProperties(Sender: TObject);
     procedure SpkLargeButton1Click(Sender: TObject);
     procedure SpkSmallButton1Click(Sender: TObject);
@@ -115,6 +122,7 @@ begin
   DataModule1.PQTEventMonitor1.Registered:=True;
   //RxIniPropStorage1.WriteBoolean('init',False);
   SpkLargeButton1.Enabled:=RxIniPropStorage1.ReadBoolean('init',False);
+  RxDBGrid1.LoadFromFile('main.ini');
 end;
 
 procedure TForm1.MenuItem11Click(Sender: TObject);
@@ -163,6 +171,76 @@ begin
 
 end;
 
+procedure TForm1.RxDBGrid1DblClick(Sender: TObject);
+begin
+  Application_form.ShowModal;
+end;
+
+procedure TForm1.RxDBGrid1DrawColumnCell(Sender: TObject; const Rect: TRect;
+  DataCol: Integer; Column: TColumn; State: TGridDrawState);
+var
+arect: TRect;
+begin
+  arect:=Rect;
+  arect.Inflate(1,1,-1,-1);
+  with DataModule1 do
+  begin
+    if Zapplicationap_typ_id.AsInteger = 1 then
+       begin
+             RxDBGrid1.Canvas.Font.Color:= clRed;
+             RxDBGrid1.Canvas.Brush.Color:= clYellow;
+             RxDBGrid1.Canvas.FillRect(arect);
+             RxDBGrid1.Canvas.TextOut(Rect.Left+2,Rect.Top+2,Column.Field.Text);
+             RxDBGrid1.Canvas.Brush.Color:= clRed;
+       end
+      else
+      if Zapplicationap_typ_id.AsInteger = 2 then
+         begin
+               RxDBGrid1.Canvas.Font.Color:= clGreen;
+               RxDBGrid1.Canvas.Brush.Color:= clYellow;
+               RxDBGrid1.Canvas.FillRect(arect);
+               RxDBGrid1.Canvas.TextOut(Rect.Left+2,Rect.Top+2,Column.Field.Text);
+               RxDBGrid1.Canvas.Brush.Color:= clRed;
+         end
+        else
+        if Zapplicationap_typ_id.AsInteger = 3 then
+           begin
+                 RxDBGrid1.Canvas.Font.Color:= clBlue;
+                 RxDBGrid1.Canvas.Brush.Color:= clYellow;
+                 RxDBGrid1.Canvas.FillRect(arect);
+                 RxDBGrid1.Canvas.TextOut(Rect.Left+2,Rect.Top+2,Column.Field.Text);
+                 RxDBGrid1.Canvas.Brush.Color:= clRed;
+           end
+          else
+          if Zapplicationap_typ_id.AsInteger = 4 then
+             begin
+                   RxDBGrid1.Canvas.Font.Color:= clBlue;
+                   RxDBGrid1.Canvas.Brush.Color:= clWhite;
+                   RxDBGrid1.Canvas.FillRect(arect);
+                   RxDBGrid1.Canvas.TextOut(Rect.Left+2,Rect.Top+2,Column.Field.Text);
+                   RxDBGrid1.Canvas.Brush.Color:= clRed;
+             end
+            else
+            if Zapplicationap_typ_id.AsInteger = 5 then
+               begin
+                     RxDBGrid1.Canvas.Font.Color:= clBlue;
+                     RxDBGrid1.Canvas.Brush.Color:= clWhite;
+                     RxDBGrid1.Canvas.FillRect(arect);
+                     RxDBGrid1.Canvas.TextOut(Rect.Left+2,Rect.Top+2,Column.Field.Text);
+                     RxDBGrid1.Canvas.Brush.Color:= clRed;
+               end
+              else
+      RxDBGrid1.DefaultDrawColumnCell(Rect, DataCol, Column, State);
+  end
+end;
+
+procedure TForm1.RxDBGrid1GetBtnParams(Sender: TObject; Field: TField;
+  AFont: TFont; var Background: TColor; var SortMarker: TSortMarker;
+  IsDown: boolean);
+begin
+
+end;
+
 procedure TForm1.RxIniPropStorage1RestoreProperties(Sender: TObject);
 begin
 
@@ -205,6 +283,11 @@ end;
 procedure TForm1.AcQuitExecute(Sender: TObject);
 begin
   Close;
+end;
+
+procedure TForm1.FormClose(Sender: TObject; var CloseAction: TCloseAction);
+begin
+    RxDBGrid1.SaveToFile('main.ini');
 end;
 
 end.

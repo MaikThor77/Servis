@@ -4,17 +4,17 @@ object People: TPeople
   Top = 114
   Width = 972
   Caption = 'People'
-  ClientHeight = 382
+  ClientHeight = 383
   ClientWidth = 972
   Menu = MainMenu1
   LCLVersion = '6.1'
   object Panel1: TPanel
     Left = 0
-    Height = 238
+    Height = 239
     Top = 144
     Width = 972
     Align = alClient
-    ClientHeight = 238
+    ClientHeight = 239
     ClientWidth = 972
     ParentColor = False
     TabOrder = 0
@@ -39,7 +39,7 @@ object People: TPeople
     end
     object DBLookupComboBox1: TDBLookupComboBox
       Left = 104
-      Height = 23
+      Height = 21
       Top = 56
       Width = 100
       AutoComplete = True
@@ -54,34 +54,33 @@ object People: TPeople
     end
     object Label1: TLabel
       Left = 10
-      Height = 15
+      Height = 13
       Top = 11
-      Width = 33
+      Width = 31
       Caption = 'Адрес'
       ParentColor = False
     end
     object Label2: TLabel
       Left = 10
-      Height = 15
+      Height = 13
       Top = 56
-      Width = 56
+      Width = 49
       Caption = 'Компания'
       ParentColor = False
     end
     object GroupBox1: TGroupBox
       Left = 274
-      Height = 236
+      Height = 237
       Top = 1
       Width = 697
       Align = alRight
       Caption = 'Сервисы'
-      ClientHeight = 216
+      ClientHeight = 219
       ClientWidth = 693
       TabOrder = 3
-      Visible = False
       object RxDBGrid2: TRxDBGrid
         Left = 0
-        Height = 216
+        Height = 219
         Top = 0
         Width = 693
         ColumnDefValues.BlobText = '(данные)'
@@ -126,6 +125,7 @@ object People: TPeople
               'ПК'
               'Видео'
               'Телефоны'
+              'Софт'
             )
             Title.Alignment = taCenter
             Title.Orientation = toHorizontal
@@ -364,6 +364,7 @@ object People: TPeople
         PickList.Strings = (
           'Мастерская'
           'Заказчик 1'
+          'Разработчики'
         )
         Title.Alignment = taCenter
         Title.Orientation = toHorizontal

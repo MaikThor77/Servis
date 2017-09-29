@@ -3,7 +3,7 @@ object DataModule1: TDataModule1
   OldCreateOrder = False
   Height = 409
   HorizontalOffset = 129
-  VerticalOffset = 327
+  VerticalOffset = 309
   Width = 900
   object DScompany: TDataSource
     DataSet = Zcompany
@@ -704,6 +704,7 @@ object DataModule1: TDataModule1
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
+      DisplayFormat = 'DD.MM.GG hh:mm'
     end
     object Zapplicationap_end: TDateTimeField
       FieldKind = fkData
@@ -735,6 +736,7 @@ object DataModule1: TDataModule1
   end
   object DSapplication: TDataSource
     DataSet = Zapplication
+    OnDataChange = DSapplicationDataChange
     Left = 752
     Top = 136
   end

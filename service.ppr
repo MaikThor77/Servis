@@ -8,7 +8,7 @@ uses
   {$ENDIF}{$ENDIF}
   Interfaces, // this includes the LCL widgetset
   Forms, main_unit, data_unit, company_unit, servis_unit, status_unit, 
-typeservice_unit, people_unit, splash_unit, pl_zeosdbo;
+typeservice_unit, people_unit, splash_unit, pl_zeosdbo, application_unit;
 
 {$R *.res}
 
@@ -34,6 +34,7 @@ Application.Initialize;
  // Application.CreateForm(TSplash, Splash);
  Splash.Hide;
  Splash.Free;
+  Application.CreateForm(TApplication_form, Application_form);
   Application.Run;
 end.
 

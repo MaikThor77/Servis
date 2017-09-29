@@ -2,18 +2,19 @@ object Form1: TForm1
   Left = -8
   Height = 706
   Top = -8
-  Width = 1360
+  Width = 1356
   Caption = 'Servis'
-  ClientHeight = 686
-  ClientWidth = 1360
+  ClientHeight = 687
+  ClientWidth = 1356
   Menu = MainMenu1
+  OnClose = FormClose
   OnCreate = FormCreate
   LCLVersion = '6.1'
   WindowState = wsMaximized
   object SpkToolbar1: TSpkToolbar
     Left = 0
     Top = 0
-    Width = 1360
+    Width = 1356
     Color = clGradientActiveCaption
     Appearance.Tab.TabHeaderFont.Color = 9126421
     Appearance.Tab.TabHeaderFont.Height = -11
@@ -113,8 +114,8 @@ object Form1: TForm1
       Visible = True
       Panes = (
         'SpkPane3'
-        'SpkPane2'
         'SpkPane1'
+        'SpkPane2'
       )
       object SpkPane3: TSpkPane
         Caption = 'Справочники'
@@ -182,6 +183,21 @@ object Form1: TForm1
           ButtonKind = bkButton
         end
       end
+      object SpkPane1: TSpkPane
+        Caption = ' '
+        Visible = True
+        Items = (
+          'SpkLargeButton1'
+        )
+        object SpkLargeButton1: TSpkLargeButton
+          Visible = True
+          Enabled = False
+          Caption = 'Обнулить базу'
+          OnClick = SpkLargeButton1Click
+          LargeImageIndex = 3
+          ButtonKind = bkButton
+        end
+      end
       object SpkPane2: TSpkPane
         Caption = ' '
         Visible = True
@@ -198,37 +214,22 @@ object Form1: TForm1
           ButtonKind = bkButton
         end
       end
-      object SpkPane1: TSpkPane
-        Caption = ' '
-        Visible = True
-        Items = (
-          'SpkLargeButton1'
-        )
-        object SpkLargeButton1: TSpkLargeButton
-          Visible = True
-          Enabled = False
-          Caption = 'Обнулить базу'
-          OnClick = SpkLargeButton1Click
-          LargeImageIndex = 3
-          ButtonKind = bkButton
-        end
-      end
     end
   end
   object Panel1: TPanel
     Left = 0
-    Height = 574
+    Height = 575
     Top = 112
-    Width = 1360
+    Width = 1356
     Align = alClient
-    ClientHeight = 574
-    ClientWidth = 1360
+    ClientHeight = 575
+    ClientWidth = 1356
     TabOrder = 1
     object RxDBGrid1: TRxDBGrid
       Left = 1
-      Height = 549
+      Height = 553
       Top = 1
-      Width = 1358
+      Width = 1354
       AfterQuickSearch = RxDBGrid1AfterQuickSearch
       ColumnDefValues.BlobText = '(данные)'
       TitleButtons = False
@@ -473,6 +474,7 @@ object Form1: TForm1
             'ПК'
             'Видео'
             'Телефоны'
+            'Софт'
           )
           Title.Alignment = taCenter
           Title.Orientation = toHorizontal
@@ -500,6 +502,7 @@ object Form1: TForm1
             'Петров3'
             'Менеджер 1'
             'Менеджер 2'
+            'MorisW'
           )
           Title.Alignment = taCenter
           Title.Orientation = toHorizontal
@@ -528,6 +531,7 @@ object Form1: TForm1
             'Петр3'
             'имя'
             'имя 2'
+            ' '
           )
           Title.Alignment = taCenter
           Title.Orientation = toHorizontal
@@ -556,6 +560,7 @@ object Form1: TForm1
             'Петрович3'
             'отчество'
             'отчество 2'
+            ' '
           )
           Title.Alignment = taCenter
           Title.Orientation = toHorizontal
@@ -600,6 +605,7 @@ object Form1: TForm1
             'Петров3'
             'Менеджер 1'
             'Менеджер 2'
+            'MorisW'
           )
           Title.Alignment = taCenter
           Title.Orientation = toHorizontal
@@ -628,6 +634,7 @@ object Form1: TForm1
             'Петр3'
             'имя'
             'имя 2'
+            ' '
           )
           Title.Alignment = taCenter
           Title.Orientation = toHorizontal
@@ -656,6 +663,7 @@ object Form1: TForm1
             'Петрович3'
             'отчество'
             'отчество 2'
+            ' '
           )
           Title.Alignment = taCenter
           Title.Orientation = toHorizontal
@@ -693,6 +701,7 @@ object Form1: TForm1
           PickList.Strings = (
             'Мастерская'
             'Заказчик 1'
+            'Разработчики'
           )
           Title.Alignment = taCenter
           Title.Orientation = toHorizontal
@@ -710,7 +719,6 @@ object Form1: TForm1
           Footers = <>
         end      
         item
-          ReadOnly = True
           Title.Alignment = taCenter
           Title.Orientation = toHorizontal
           Title.Caption = 'Начало'
@@ -843,6 +851,7 @@ object Form1: TForm1
       DrawFullLine = False
       FocusColor = clRed
       SelectedColor = clHighlight
+      GridLineColor = clLime
       GridLineStyle = psSolid
       DataSource = DataModule1.DSapplication
       FixedCols = 0
@@ -851,12 +860,15 @@ object Form1: TForm1
       ParentColor = False
       Scrollbars = ssAutoBoth
       TabOrder = 0
+      TitleStyle = tsNative
+      OnDrawColumnCell = RxDBGrid1DrawColumnCell
+      OnDblClick = RxDBGrid1DblClick
     end
     object StatusBar1: TStatusBar
       Left = 1
-      Height = 23
-      Top = 550
-      Width = 1358
+      Height = 20
+      Top = 554
+      Width = 1354
       Panels = <      
         item
           Text = 'База:'

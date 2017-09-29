@@ -14,7 +14,7 @@
       <UseVersionInfo Value="True"/>
       <AutoIncrementBuild Value="True"/>
       <MajorVersionNr Value="1"/>
-      <BuildNr Value="251"/>
+      <BuildNr Value="332"/>
       <Attributes pvaPreRelease="True"/>
       <StringTable ProductVersion="0.0.0.0"/>
     </VersionInfo>
@@ -29,33 +29,48 @@
         <FormatVersion Value="1"/>
       </local>
     </RunParams>
-    <RequiredPackages Count="8">
+    <RequiredPackages Count="13">
       <Item1>
-        <PackageName Value="pl_zeosdbo"/>
+        <PackageName Value="lz_datetimectrls"/>
       </Item1>
       <Item2>
-        <PackageName Value="pl_luicontrols"/>
+        <PackageName Value="pl_KControls"/>
       </Item2>
       <Item3>
-        <PackageName Value="bs_Controls"/>
+        <PackageName Value="pl_jujiboutils"/>
       </Item3>
       <Item4>
-        <PackageName Value="pl_richmemo"/>
+        <PackageName Value="pl_virtualtreesextra"/>
       </Item4>
       <Item5>
-        <PackageName Value="adFCL"/>
+        <PackageName Value="pl_fzcontrols"/>
       </Item5>
       <Item6>
-        <PackageName Value="pl_rx"/>
+        <PackageName Value="pl_zeosdbo"/>
       </Item6>
       <Item7>
-        <PackageName Value="pl_spktoolbar"/>
+        <PackageName Value="pl_luicontrols"/>
       </Item7>
       <Item8>
-        <PackageName Value="adLCL"/>
+        <PackageName Value="bs_Controls"/>
       </Item8>
+      <Item9>
+        <PackageName Value="pl_richmemo"/>
+      </Item9>
+      <Item10>
+        <PackageName Value="adFCL"/>
+      </Item10>
+      <Item11>
+        <PackageName Value="pl_rx"/>
+      </Item11>
+      <Item12>
+        <PackageName Value="pl_spktoolbar"/>
+      </Item12>
+      <Item13>
+        <PackageName Value="adLCL"/>
+      </Item13>
     </RequiredPackages>
-    <Units Count="9">
+    <Units Count="10">
       <Unit0>
         <Filename Value="service.ppr"/>
         <IsPartOfProject Value="True"/>
@@ -116,6 +131,13 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
       </Unit8>
+      <Unit9>
+        <Filename Value="application_unit.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="Application_form"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+      </Unit9>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

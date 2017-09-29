@@ -15,9 +15,11 @@ type
 
   TSplash = class(TForm)
     Label1: TLabel;
+    Memo1: TMemo;
     ProgressBar1: TProgressBar;
     Timer1: TTimer;
     procedure FormCloseQuery(Sender: TObject; var CanClose: boolean);
+    procedure FormCreate(Sender: TObject);
     procedure FormHide(Sender: TObject);
     procedure Timer1Timer(Sender: TObject);
   private
@@ -43,6 +45,15 @@ end;
 procedure TSplash.FormCloseQuery(Sender: TObject; var CanClose: boolean);
 begin
   CanClose :=Timer1.Enabled=false;
+end;
+
+procedure TSplash.FormCreate(Sender: TObject);
+begin
+  Memo1.Lines.Clear;
+  Memo1.Lines.Add('ver. 1.0.0.299');
+  Memo1.Lines.Add('');
+  Memo1.Lines.Add('Server: ec2-54-247-120-169.eu-west-1.compute.amazonaws.com');
+  Memo1.Lines.Add('Basa  : d61ek4bmuoba6f');
 end;
 
 procedure TSplash.FormHide(Sender: TObject);
