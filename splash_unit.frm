@@ -63,4 +63,8 @@ object Splash: TSplash
     Left = 52
     Top = 67
   end
+  object RxVersionInfo1: TRxVersionInfo
+    Left = 104
+    Top = 67
+  end
 end
