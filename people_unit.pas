@@ -7,7 +7,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, rxdbgrid, Forms, Controls,
-  Graphics, Dialogs, ExtCtrls, StdCtrls, Menus, DbCtrls;
+  Graphics, Dialogs, ExtCtrls, StdCtrls, Menus, DbCtrls, data_unit;
 
 type
 
@@ -28,6 +28,8 @@ type
     RxDBGrid2: TRxDBGrid;
     procedure Button1Click(Sender: TObject);
     procedure MenuItem2Click(Sender: TObject);
+    procedure RxDBGrid1MouseUp(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
   private
 
   public
@@ -46,6 +48,13 @@ implementation
 procedure TPeople.MenuItem2Click(Sender: TObject);
 begin
    Close;
+end;
+
+procedure TPeople.RxDBGrid1MouseUp(Sender: TObject; Button: TMouseButton;
+  Shift: TShiftState; X, Y: Integer);
+begin
+   //MessageDlg(DataModule1.DSpeople.DataSet.FieldByName('pe_master').AsString,mtError, mbOKCancel, 0);
+   GroupBox1.Visible:=DataModule1.DSpeople.DataSet.FieldByName('pe_master').AsBoolean;
 end;
 
 procedure TPeople.Button1Click(Sender: TObject);

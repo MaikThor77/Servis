@@ -1,11 +1,11 @@
 object Form1: TForm1
-  Left = -8
-  Height = 706
-  Top = -8
-  Width = 1356
+  Left = -4
+  Height = 705
+  Top = -4
+  Width = 1360
   Caption = 'Servis'
-  ClientHeight = 687
-  ClientWidth = 1356
+  ClientHeight = 686
+  ClientWidth = 1360
   Menu = MainMenu1
   OnClose = FormClose
   OnCreate = FormCreate
@@ -14,7 +14,7 @@ object Form1: TForm1
   object SpkToolbar1: TSpkToolbar
     Left = 0
     Top = 0
-    Width = 1356
+    Width = 1360
     Color = clGradientActiveCaption
     Appearance.Tab.TabHeaderFont.Color = 9126421
     Appearance.Tab.TabHeaderFont.Height = -11
@@ -218,18 +218,18 @@ object Form1: TForm1
   end
   object Panel1: TPanel
     Left = 0
-    Height = 575
+    Height = 574
     Top = 112
-    Width = 1356
+    Width = 1360
     Align = alClient
-    ClientHeight = 575
-    ClientWidth = 1356
+    ClientHeight = 574
+    ClientWidth = 1360
     TabOrder = 1
     object RxDBGrid1: TRxDBGrid
       Left = 1
-      Height = 553
+      Height = 552
       Top = 1
-      Width = 1354
+      Width = 1358
       AfterQuickSearch = RxDBGrid1AfterQuickSearch
       ColumnDefValues.BlobText = '(данные)'
       TitleButtons = False
@@ -867,8 +867,8 @@ object Form1: TForm1
     object StatusBar1: TStatusBar
       Left = 1
       Height = 20
-      Top = 554
-      Width = 1354
+      Top = 553
+      Width = 1358
       Panels = <      
         item
           Text = 'База:'

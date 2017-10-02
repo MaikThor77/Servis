@@ -122,7 +122,7 @@ begin
   DataModule1.PQTEventMonitor1.Registered:=True;
   //RxIniPropStorage1.WriteBoolean('init',False);
   SpkLargeButton1.Enabled:=RxIniPropStorage1.ReadBoolean('init',False);
-  RxDBGrid1.LoadFromFile('main.ini');
+  if FileExists('main.ini') then  RxDBGrid1.LoadFromFile('main.ini');
 end;
 
 procedure TForm1.MenuItem11Click(Sender: TObject);
@@ -188,7 +188,7 @@ begin
     if Zapplicationap_typ_id.AsInteger = 1 then
        begin
              RxDBGrid1.Canvas.Font.Color:= clRed;
-             RxDBGrid1.Canvas.Brush.Color:= clYellow;
+             RxDBGrid1.Canvas.Brush.Color:= clWhite;
              RxDBGrid1.Canvas.FillRect(arect);
              RxDBGrid1.Canvas.TextOut(Rect.Left+2,Rect.Top+2,Column.Field.Text);
              RxDBGrid1.Canvas.Brush.Color:= clRed;
@@ -196,8 +196,8 @@ begin
       else
       if Zapplicationap_typ_id.AsInteger = 2 then
          begin
-               RxDBGrid1.Canvas.Font.Color:= clGreen;
-               RxDBGrid1.Canvas.Brush.Color:= clYellow;
+               RxDBGrid1.Canvas.Font.Color:= clYellow;
+               RxDBGrid1.Canvas.Brush.Color:= clWhite;
                RxDBGrid1.Canvas.FillRect(arect);
                RxDBGrid1.Canvas.TextOut(Rect.Left+2,Rect.Top+2,Column.Field.Text);
                RxDBGrid1.Canvas.Brush.Color:= clRed;
@@ -205,8 +205,8 @@ begin
         else
         if Zapplicationap_typ_id.AsInteger = 3 then
            begin
-                 RxDBGrid1.Canvas.Font.Color:= clBlue;
-                 RxDBGrid1.Canvas.Brush.Color:= clYellow;
+                 RxDBGrid1.Canvas.Font.Color:= clGreen;
+                 RxDBGrid1.Canvas.Brush.Color:= clWhite;
                  RxDBGrid1.Canvas.FillRect(arect);
                  RxDBGrid1.Canvas.TextOut(Rect.Left+2,Rect.Top+2,Column.Field.Text);
                  RxDBGrid1.Canvas.Brush.Color:= clRed;
@@ -214,7 +214,7 @@ begin
           else
           if Zapplicationap_typ_id.AsInteger = 4 then
              begin
-                   RxDBGrid1.Canvas.Font.Color:= clBlue;
+                   RxDBGrid1.Canvas.Font.Color:= clGray;
                    RxDBGrid1.Canvas.Brush.Color:= clWhite;
                    RxDBGrid1.Canvas.FillRect(arect);
                    RxDBGrid1.Canvas.TextOut(Rect.Left+2,Rect.Top+2,Column.Field.Text);

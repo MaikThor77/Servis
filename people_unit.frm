@@ -1,20 +1,20 @@
 object People: TPeople
   Left = 329
-  Height = 402
+  Height = 353
   Top = 114
   Width = 972
   Caption = 'People'
-  ClientHeight = 383
+  ClientHeight = 334
   ClientWidth = 972
   Menu = MainMenu1
   LCLVersion = '6.1'
   object Panel1: TPanel
     Left = 0
-    Height = 239
+    Height = 190
     Top = 144
     Width = 972
     Align = alClient
-    ClientHeight = 239
+    ClientHeight = 190
     ClientWidth = 972
     ParentColor = False
     TabOrder = 0
@@ -70,17 +70,17 @@ object People: TPeople
     end
     object GroupBox1: TGroupBox
       Left = 274
-      Height = 237
+      Height = 188
       Top = 1
       Width = 697
       Align = alRight
       Caption = 'Сервисы'
-      ClientHeight = 219
+      ClientHeight = 170
       ClientWidth = 693
       TabOrder = 3
       object RxDBGrid2: TRxDBGrid
         Left = 0
-        Height = 219
+        Height = 170
         Top = 0
         Width = 693
         ColumnDefValues.BlobText = '(данные)'
@@ -500,6 +500,7 @@ object People: TPeople
     Options = [dgEditing, dgTitles, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
     ParentColor = False
     TabOrder = 1
+    OnMouseUp = RxDBGrid1MouseUp
   end
   object MainMenu1: TMainMenu
     Left = 8

@@ -1,17 +1,17 @@
 object Application_form: TApplication_form
   Left = 327
-  Height = 465
+  Height = 492
   Top = 250
-  Width = 677
+  Width = 685
   Caption = 'Application_form'
-  ClientHeight = 465
-  ClientWidth = 677
+  ClientHeight = 492
+  ClientWidth = 685
   LCLVersion = '6.1'
   object DBDateTimePicker1: TDBDateTimePicker
     Left = 40
-    Height = 23
+    Height = 21
     Top = 280
-    Width = 118
+    Width = 121
     DataField = 'ap_start'
     DataSource = DataModule1.DSapplication
     ReadOnly = False
@@ -32,7 +32,7 @@ object Application_form: TApplication_form
   end
   object DBText1: TDBText
     Left = 40
-    Height = 15
+    Height = 13
     Top = 14
     Width = 6
     DataField = 'ap_id'
@@ -41,7 +41,7 @@ object Application_form: TApplication_form
   end
   object Label1: TLabel
     Left = 8
-    Height = 15
+    Height = 13
     Top = 14
     Width = 13
     Caption = '№'
@@ -67,7 +67,7 @@ object Application_form: TApplication_form
   end
   object DBEdit1: TDBEdit
     Left = 96
-    Height = 23
+    Height = 21
     Top = 128
     Width = 232
     DataField = 'ap_inform'
@@ -78,23 +78,23 @@ object Application_form: TApplication_form
   end
   object Label2: TLabel
     Left = 8
-    Height = 15
+    Height = 13
     Top = 136
-    Width = 74
+    Width = 63
     Caption = 'Информация'
     ParentColor = False
   end
   object Label3: TLabel
     Left = 8
-    Height = 15
+    Height = 13
     Top = 168
-    Width = 50
+    Width = 44
     Caption = 'Решение'
     ParentColor = False
   end
   object DBEdit2: TDBEdit
     Left = 96
-    Height = 23
+    Height = 21
     Top = 160
     Width = 232
     DataField = 'ap_rez'
@@ -105,23 +105,23 @@ object Application_form: TApplication_form
   end
   object Label4: TLabel
     Left = 8
-    Height = 15
+    Height = 13
     Top = 88
-    Width = 56
+    Width = 49
     Caption = 'Компания'
     ParentColor = False
   end
   object Label5: TLabel
     Left = 8
-    Height = 15
+    Height = 13
     Top = 56
-    Width = 40
+    Width = 36
     Caption = 'Сервис'
     ParentColor = False
   end
   object DBLookupComboBox1: TDBLookupComboBox
     Left = 96
-    Height = 23
+    Height = 21
     Top = 80
     Width = 232
     DataField = 'ap_com_id'
@@ -135,7 +135,7 @@ object Application_form: TApplication_form
   end
   object DBLookupComboBox2: TDBLookupComboBox
     Left = 96
-    Height = 23
+    Height = 21
     Top = 48
     Width = 232
     DataField = 'ap_ser_id'
@@ -150,7 +150,7 @@ object Application_form: TApplication_form
   end
   object DBEdit3: TDBEdit
     Left = 96
-    Height = 23
+    Height = 21
     Top = 192
     Width = 232
     DataField = 'ap_place'
@@ -161,23 +161,23 @@ object Application_form: TApplication_form
   end
   object Label6: TLabel
     Left = 8
-    Height = 15
+    Height = 13
     Top = 200
-    Width = 35
+    Width = 31
     Caption = 'Место'
     ParentColor = False
   end
   object Label7: TLabel
     Left = 96
-    Height = 15
+    Height = 13
     Top = 14
-    Width = 21
+    Width = 18
     Caption = 'Тип'
     ParentColor = False
   end
   object DBLookupComboBox3: TDBLookupComboBox
     Left = 144
-    Height = 23
+    Height = 21
     Top = 6
     Width = 184
     DataField = 'ap_typ_id'
@@ -191,7 +191,7 @@ object Application_form: TApplication_form
   end
   object Label8: TLabel
     Left = 352
-    Height = 15
+    Height = 13
     Top = 14
     Width = 36
     Caption = 'Статус'
@@ -199,7 +199,7 @@ object Application_form: TApplication_form
   end
   object DBLookupComboBox4: TDBLookupComboBox
     Left = 424
-    Height = 23
+    Height = 21
     Top = 6
     Width = 184
     DataField = 'ap_sta_id'
@@ -213,15 +213,15 @@ object Application_form: TApplication_form
   end
   object Label9: TLabel
     Left = 352
-    Height = 15
+    Height = 13
     Top = 56
-    Width = 41
+    Width = 37
     Caption = 'Мастер'
     ParentColor = False
   end
   object DBLookupComboBox5: TDBLookupComboBox
     Left = 424
-    Height = 23
+    Height = 21
     Top = 48
     Width = 184
     DataField = 'ap_peo_mas_id'
@@ -235,15 +235,15 @@ object Application_form: TApplication_form
   end
   object Label10: TLabel
     Left = 352
-    Height = 15
+    Height = 13
     Top = 88
-    Width = 58
+    Width = 53
     Caption = 'Менаджер'
     ParentColor = False
   end
   object DBLookupComboBox6: TDBLookupComboBox
     Left = 424
-    Height = 23
+    Height = 21
     Top = 80
     Width = 184
     DataField = 'ap_peo_men_id'
